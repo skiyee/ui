@@ -1,0 +1,28 @@
+name: ✨ 功能需求请求
+description: 为 skiyee/ui 申请新功能或改进建议
+title: "[✨ feat]: "
+labels: ["request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 功能需求说明
+        <!-- 删除此注释 -->
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 功能目的
+      description: 请清晰描述该功能要解决的问题或带来的价值
+      placeholder: "示例：提高用户上传文件时的操作效率..."
+  - type: textarea
+    id: solution
+    attributes:
+      label: 建议实现方式
+      description: 如果有技术实现建议请说明（可选）
+  - type: checkboxes
+    id: code-ready
+    attributes:
+      label: 是否已有相关代码？
+      options:
+        - label: 我已准备好相关代码（PR欢迎）
+          required: false

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🛠️ 技术问题咨询
+    about: 需要技术指导请联系支持团队
+    url: https://skiyee-ui.netlify.app/docs/getting-started/communication

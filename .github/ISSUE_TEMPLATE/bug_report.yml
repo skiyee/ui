@@ -1,0 +1,76 @@
+name: 🐛 Bug 报告
+description: 为 skiyee/ui 提交程序异常报告
+title: "[🐛 bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **请先确认：**
+        - [ ] 已查看[常见问题文档](https://skiyee-ui.netlify.app/docs/getting-started/introduction)
+        - [ ] 在最新代码分支可复现
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 必填项，完整环境配置
+      placeholder: |
+        操作系统（含版本）：
+        设备类型（PC/手机型号）：
+        基础库/浏览器及版本（如适用）：
+        项目版本/Commit Hash：
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 清晰明确的步骤描述（示例格式）
+      placeholder: |
+        1. 打开 '...' 页面
+        2. 点击 '....' 按钮
+        3. 输入 '....' 内容
+        4. 观察错误现象
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+      description: 你认为正确的运行结果
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 观察到的异常现象
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度
+      options:
+        - "🚨 崩溃性错误（服务不可用）"
+        - "⚠️ 主要功能异常"
+        - "🛠️ 次要功能问题"
+        - "📌 界面显示问题"
+      multiple: false
+  - type: checkboxes
+    id: attachments
+    attributes:
+      label: 附加材料
+      options:
+        - label: 包含错误日志（在下方代码块粘贴）
+        - label: 包含屏幕截图
+        - label: 包含录屏文件
+  - type: textarea
+    id: logs
+    attributes:
+      label: 错误日志
+      render: shell
+      placeholder: |
+        [粘贴日志内容，包含错误堆栈信息]
+  - type: input
+    id: reference
+    attributes:
+      label: 相关Issue
+      placeholder: "#123 或完整URL"
+      description: 已知相关问题的链接
