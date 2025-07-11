@@ -1,0 +1,85 @@
+{
+  "name": "@skiyee/uni-ui",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "一个由原子化CSS驱动、符合直觉设计、高度定制化、面向AI时代的移动端 UI 库，助力开发者打造独特且差异化的移动端应用程序",
+  "author": {
+    "name": "skiyee",
+    "email": "319619193@qq.com",
+    "url": "https://github.com/skiyee"
+  },
+  "sponsor": {
+    "url": "https://afdian.com/a/skiyee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skiyee/ui",
+    "directory": "packages/skiyee-uni-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/skiyee/ui/issues"
+  },
+  "keywords": [
+    "ui",
+    "uniapp",
+    "unocss",
+    "unocss-ui",
+    "uniapp-ui",
+    "uniapp-vue3",
+    "uniapp-component",
+    "vue-ui",
+    "vue3-components"
+  ],
+  "sideEffects": false,
+  "exports": {
+    "./components/*": "./dist/components/*",
+    "./composables": {
+      "types": "./dist/composables/index.d.ts",
+      "import": "./dist/composables/index.js",
+      "require": "./dist/composables/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown"
+  },
+  "peerDependencies": {
+    "@skiyee/ui-preset": ">=workspace:*",
+    "arktype": ">=2.0.0",
+    "valibot": ">=1.0.0",
+    "vue": ">=3.4.21",
+    "zod": ">=3.24.0"
+  },
+  "peerDependenciesMeta": {
+    "arktype": {
+      "optional": true
+    },
+    "valibot": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.57",
+    "@skiyee/ucv": "^0.1.2",
+    "@standard-schema/spec": "^1.0.0"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "^3.4.15",
+    "@skiyee/ui-preset": "workspace:*",
+    "@uni-helper/uni-app-types": "1.0.0-alpha.6",
+    "mkdist": "^2.3.0",
+    "vue": "catalog:ui",
+    "vue-sfc-transformer": "^0.1.16",
+    "zod": "^3.25.64"
+  },
+  "config": {
+    "commitizen": {
+      "path": "../../node_modules/cz-git"
+    }
+  }
+}

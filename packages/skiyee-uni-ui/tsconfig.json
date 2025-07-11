@@ -1,0 +1,14 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["node", "@dcloudio/types", "@uni-helper/uni-app-types"]
+  },
+  "include": [
+    "src",
+    "scripts"
+  ],
+  "vueCompilerOptions": {
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"]
+  }
+}

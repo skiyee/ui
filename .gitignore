@@ -1,0 +1,34 @@
+# dev/build outputs
+.hbuilderx
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+demo
+scripts
+tsdown.config.ts
+
+# Node dependencies
+node_modules
+uni_modules
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.gitmodules
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Close Source
+packages/**/validator
+packages/**/styles
+dev_*

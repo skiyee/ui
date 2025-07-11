@@ -1,0 +1,20 @@
+packages:
+  - packages/*
+  - presets/*
+  - examples/*
+  - docs
+
+catalogs:
+  ui: 
+    '@unocss/rule-utils': 66.0.0
+    '@unocss/core': 66.0.0
+    '@unocss/preset-icons': 66.0.0
+    unocss: 66.0.0
+    vue: 3.4.21
+    vue-tsc: 2.2.10
+    vite: 5.2.8
+    
+  docs:
+    vue: ^3.5.16
+    vue-router: ^4.5.1
+    vite: 6.3.5

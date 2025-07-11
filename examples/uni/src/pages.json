@@ -1,0 +1,623 @@
+{
+  "pages": [
+    {
+      "path": "pages/index",
+      "type": "home"
+    }
+  ],
+  "globalStyle": {
+    "backgroundColor": "@bgColor",
+    "backgroundColorBottom": "@bgColorBottom",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "skiyee/ui"
+  },
+  "subPackages": [
+    {
+      "root": "pages-basic",
+      "pages": [
+        {
+          "path": "badge/base",
+          "type": "page"
+        },
+        {
+          "path": "badge/boundless",
+          "type": "page"
+        },
+        {
+          "path": "badge/color",
+          "type": "page"
+        },
+        {
+          "path": "badge/content",
+          "type": "page"
+        },
+        {
+          "path": "badge/custom",
+          "type": "page"
+        },
+        {
+          "path": "badge/hidden",
+          "type": "page"
+        },
+        {
+          "path": "badge/placement",
+          "type": "page"
+        },
+        {
+          "path": "badge/shape",
+          "type": "page"
+        },
+        {
+          "path": "badge/size",
+          "type": "page"
+        },
+        {
+          "path": "badge/standalone",
+          "type": "page"
+        },
+        {
+          "path": "button/base",
+          "type": "page"
+        },
+        {
+          "path": "button/color",
+          "type": "page"
+        },
+        {
+          "path": "button/custom",
+          "type": "page"
+        },
+        {
+          "path": "button/disabled",
+          "type": "page"
+        },
+        {
+          "path": "button/full",
+          "type": "page"
+        },
+        {
+          "path": "button/icon",
+          "type": "page"
+        },
+        {
+          "path": "button/label",
+          "type": "page"
+        },
+        {
+          "path": "button/loading",
+          "type": "page"
+        },
+        {
+          "path": "button/radius",
+          "type": "page"
+        },
+        {
+          "path": "button/size",
+          "type": "page"
+        },
+        {
+          "path": "button/usage",
+          "type": "page"
+        },
+        {
+          "path": "button/variant",
+          "type": "page"
+        },
+        {
+          "path": "icon/base",
+          "type": "page"
+        },
+        {
+          "path": "icon/color",
+          "type": "page"
+        },
+        {
+          "path": "icon/name",
+          "type": "page"
+        },
+        {
+          "path": "icon/size",
+          "type": "page"
+        },
+        {
+          "path": "overlay/animation",
+          "type": "page"
+        },
+        {
+          "path": "overlay/backdrop",
+          "type": "page"
+        },
+        {
+          "path": "overlay/base",
+          "type": "page"
+        },
+        {
+          "path": "overlay/controlled",
+          "type": "page"
+        },
+        {
+          "path": "overlay/default-value",
+          "type": "page"
+        },
+        {
+          "path": "overlay/dismissable",
+          "type": "page"
+        },
+        {
+          "path": "overlay/lock-scroll",
+          "type": "page"
+        },
+        {
+          "path": "overlay/placement",
+          "type": "page"
+        },
+        {
+          "path": "overlay/z-index",
+          "type": "page"
+        }
+      ]
+    },
+    {
+      "root": "pages-form",
+      "pages": [
+        {
+          "path": "checkbox/base",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/color",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/controlled",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/direction",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/disabled",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/group-color",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/group-controlled",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/group-disabled",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/group-size",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/indeterminate",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/label",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/size",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/usage",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/value",
+          "type": "page"
+        },
+        {
+          "path": "field/base",
+          "type": "page"
+        },
+        {
+          "path": "field/description",
+          "type": "page"
+        },
+        {
+          "path": "field/disabled",
+          "type": "page"
+        },
+        {
+          "path": "field/error",
+          "type": "page"
+        },
+        {
+          "path": "field/label-width",
+          "type": "page"
+        },
+        {
+          "path": "field/label",
+          "type": "page"
+        },
+        {
+          "path": "field/layout",
+          "type": "page"
+        },
+        {
+          "path": "field/name",
+          "type": "page"
+        },
+        {
+          "path": "field/required",
+          "type": "page"
+        },
+        {
+          "path": "field/size",
+          "type": "page"
+        },
+        {
+          "path": "form/base",
+          "type": "page"
+        },
+        {
+          "path": "form/debounce-time",
+          "type": "page"
+        },
+        {
+          "path": "form/disabled",
+          "type": "page"
+        },
+        {
+          "path": "form/schema-arktype",
+          "type": "page"
+        },
+        {
+          "path": "form/schema-zod",
+          "type": "page"
+        },
+        {
+          "path": "form/submit",
+          "type": "page"
+        },
+        {
+          "path": "form/validate-on",
+          "type": "page"
+        },
+        {
+          "path": "form/values",
+          "type": "page"
+        },
+        {
+          "path": "input/base",
+          "type": "page"
+        },
+        {
+          "path": "input/clearable",
+          "type": "page"
+        },
+        {
+          "path": "input/controlled",
+          "type": "page"
+        },
+        {
+          "path": "input/counter",
+          "type": "page"
+        },
+        {
+          "path": "input/custom",
+          "type": "page"
+        },
+        {
+          "path": "input/disabled",
+          "type": "page"
+        },
+        {
+          "path": "input/icon",
+          "type": "page"
+        },
+        {
+          "path": "input/maxlength",
+          "type": "page"
+        },
+        {
+          "path": "input/password",
+          "type": "page"
+        },
+        {
+          "path": "input/placeholder",
+          "type": "page"
+        },
+        {
+          "path": "input/readonly",
+          "type": "page"
+        },
+        {
+          "path": "input/size",
+          "type": "page"
+        },
+        {
+          "path": "input/type",
+          "type": "page"
+        },
+        {
+          "path": "input/usage",
+          "type": "page"
+        },
+        {
+          "path": "number-input/base",
+          "type": "page"
+        },
+        {
+          "path": "number-input/disabled",
+          "type": "page"
+        },
+        {
+          "path": "number-input/formatter",
+          "type": "page"
+        },
+        {
+          "path": "number-input/min-max",
+          "type": "page"
+        },
+        {
+          "path": "number-input/placeholder",
+          "type": "page"
+        },
+        {
+          "path": "number-input/readonly",
+          "type": "page"
+        },
+        {
+          "path": "number-input/size",
+          "type": "page"
+        },
+        {
+          "path": "number-input/step-strictly",
+          "type": "page"
+        },
+        {
+          "path": "number-input/step",
+          "type": "page"
+        },
+        {
+          "path": "number-input/usage",
+          "type": "page"
+        },
+        {
+          "path": "radio/base",
+          "type": "page"
+        },
+        {
+          "path": "radio/color",
+          "type": "page"
+        },
+        {
+          "path": "radio/direction",
+          "type": "page"
+        },
+        {
+          "path": "radio/disabled",
+          "type": "page"
+        },
+        {
+          "path": "radio/group-color",
+          "type": "page"
+        },
+        {
+          "path": "radio/group-controlled",
+          "type": "page"
+        },
+        {
+          "path": "radio/group-disabled",
+          "type": "page"
+        },
+        {
+          "path": "radio/group-size",
+          "type": "page"
+        },
+        {
+          "path": "radio/label",
+          "type": "page"
+        },
+        {
+          "path": "radio/size",
+          "type": "page"
+        },
+        {
+          "path": "radio/value",
+          "type": "page"
+        },
+        {
+          "path": "slider/base",
+          "type": "page"
+        },
+        {
+          "path": "slider/color",
+          "type": "page"
+        },
+        {
+          "path": "slider/controlled",
+          "type": "page"
+        },
+        {
+          "path": "slider/disabled",
+          "type": "page"
+        },
+        {
+          "path": "slider/formatter",
+          "type": "page"
+        },
+        {
+          "path": "slider/min-max",
+          "type": "page"
+        },
+        {
+          "path": "slider/show-value",
+          "type": "page"
+        },
+        {
+          "path": "slider/size",
+          "type": "page"
+        },
+        {
+          "path": "slider/step",
+          "type": "page"
+        },
+        {
+          "path": "slider/usage",
+          "type": "page"
+        },
+        {
+          "path": "switch/base",
+          "type": "page"
+        },
+        {
+          "path": "switch/color",
+          "type": "page"
+        },
+        {
+          "path": "switch/controlled",
+          "type": "page"
+        },
+        {
+          "path": "switch/disabled",
+          "type": "page"
+        },
+        {
+          "path": "switch/icon",
+          "type": "page"
+        },
+        {
+          "path": "switch/loading",
+          "type": "page"
+        },
+        {
+          "path": "switch/readonly",
+          "type": "page"
+        },
+        {
+          "path": "switch/size",
+          "type": "page"
+        },
+        {
+          "path": "switch/usage",
+          "type": "page"
+        },
+        {
+          "path": "textarea/auto-height",
+          "type": "page"
+        },
+        {
+          "path": "textarea/base",
+          "type": "page"
+        },
+        {
+          "path": "textarea/clearable",
+          "type": "page"
+        },
+        {
+          "path": "textarea/controlled",
+          "type": "page"
+        },
+        {
+          "path": "textarea/disabled",
+          "type": "page"
+        },
+        {
+          "path": "textarea/maxlength",
+          "type": "page"
+        },
+        {
+          "path": "textarea/placeholder",
+          "type": "page"
+        },
+        {
+          "path": "textarea/readonly",
+          "type": "page"
+        },
+        {
+          "path": "textarea/show-count",
+          "type": "page"
+        },
+        {
+          "path": "textarea/size",
+          "type": "page"
+        },
+        {
+          "path": "textarea/usage",
+          "type": "page"
+        }
+      ]
+    },
+    {
+      "root": "pages-feedback",
+      "pages": [
+        {
+          "path": "spinner/base",
+          "type": "page"
+        },
+        {
+          "path": "spinner/color",
+          "type": "page"
+        },
+        {
+          "path": "spinner/size",
+          "type": "page"
+        },
+        {
+          "path": "spinner/variant",
+          "type": "page"
+        },
+        {
+          "path": "toast/backdrop",
+          "type": "page"
+        },
+        {
+          "path": "toast/base",
+          "type": "page"
+        },
+        {
+          "path": "toast/closable",
+          "type": "page"
+        },
+        {
+          "path": "toast/controlled",
+          "type": "page"
+        },
+        {
+          "path": "toast/custom",
+          "type": "page"
+        },
+        {
+          "path": "toast/duration",
+          "type": "page"
+        },
+        {
+          "path": "toast/icon",
+          "type": "page"
+        },
+        {
+          "path": "toast/message",
+          "type": "page"
+        },
+        {
+          "path": "toast/placement",
+          "type": "page"
+        },
+        {
+          "path": "toast/type",
+          "type": "page"
+        },
+        {
+          "path": "toast/z-index",
+          "type": "page"
+        }
+      ]
+    }
+  ]
+}
