@@ -19,7 +19,7 @@ function handleVisibleChange(newZIndex: number) {
     <SkButton label="覆盖弹窗" @click="handleVisibleChange(2000)" />
 
     <SkOverlay v-model:visible="visible" :z-index="zIndex">
-      <div class="p-4 bg-white rounded-lg">
+      <div class="p-4 bg-page rounded-lg">
         <span>这个弹窗的层级为 {{ zIndex }}</span>
       </div>
     </SkOverlay>

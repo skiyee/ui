@@ -14,7 +14,7 @@ export default async () => {
     resolve: {
       alias: {
         '~': fileURLToPath(new URL('./src', import.meta.url)),
-        // '@skiyee/uni-ui': fileURLToPath(new URL('../../packages/skiyee-uni-ui/src', import.meta.url)),
+        '@skiyee/uni-ui': fileURLToPath(new URL('../../packages/skiyee-uni-ui/src', import.meta.url)),
       },
     },
     plugins: [

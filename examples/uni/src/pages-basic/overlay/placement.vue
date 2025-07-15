@@ -20,7 +20,7 @@ function handlePositionChange(newPosition: typeof placement.value) {
     <SkButton label="右侧位置" @click="handlePositionChange('right')" />
 
     <SkOverlay v-model:visible="visible" :placement="placement">
-      <div class="p-4 bg-white rounded-lg">
+      <div class="p-4 bg-page rounded-lg">
         <span>这个弹窗显示在 {{ placement }} 位置。</span>
       </div>
     </SkOverlay>

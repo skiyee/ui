@@ -45,7 +45,7 @@ function handleShow(lock: boolean) {
     <SkButton label="允许滚动弹窗" @click="handleShow(false)" />
 
     <SkOverlay v-model:visible="visible" :lock-scroll="lockScroll">
-      <div class="p-4 bg-white rounded-lg">
+      <div class="p-4 bg-page rounded-lg">
         <span class="block mb-3">锁定滚动: {{ lockScroll ? '是' : '否' }}</span>
         <SkButton label="关闭" size="small" @click="() => visible = false" />
       </div>

@@ -1,13 +1,15 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
 
-  "prettier.enable": false,
   "editor.formatOnSave": false,
 
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
   },
+
+  "eslint.runtime": "node",
+
   "unocss.colorPreview": false,
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [

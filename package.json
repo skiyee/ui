@@ -8,12 +8,11 @@
     "email": "319619193@qq.com"
   },
   "scripts": {
-    "clean": "rimraf **/node_modules"
+    "demo:dev": "pnpm --filter uni-cli-example dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/markdown": "^6.4.0",
     "@skiyee/eslint-config": "^0.1.0",
     "@types/node": "^22.15.17",
     "@vue/tsconfig": "^0.7.0",
@@ -33,11 +32,8 @@
       "@tailwindcss/oxide",
       "@uni-helper/unocss-preset-uni",
       "better-sqlite3",
-      "core-js",
       "esbuild",
       "sharp",
-      "simple-git-hooks",
-      "unrs-resolver",
       "vue-demi"
     ]
   },

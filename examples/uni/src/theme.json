@@ -1,6 +1,6 @@
 {
   "light": {
-    "bgColor": "#fcfcfc",
+    "bgColor": "#f6f6f6",
     "bgColorBottom": "#fcfcfc",
     "bgColorTop": "#ff6b00",
     "bgTxtStyle": "dark",
@@ -12,7 +12,7 @@
     "tabSelectedColor": "#ff6b00"
   },
   "dark": {
-    "bgColor": "#181818",
+    "bgColor": "#17171a",
     "bgColorBottom": "#181818",
     "bgColorTop": "#ff6b00",
     "bgTxtStyle": "light",

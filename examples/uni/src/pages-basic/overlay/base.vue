@@ -7,7 +7,7 @@ const visible = ref(false)
 <template>
   <SkButton label="显示弹窗" @click="() => visible = true" />
   <SkOverlay v-model:visible="visible">
-    <div class="p-4 bg-white rounded-lg">
+    <div class="p-4 bg-page text-primary rounded-lg">
       <span>这是一个基础的弹窗内容</span>
     </div>
   </SkOverlay>

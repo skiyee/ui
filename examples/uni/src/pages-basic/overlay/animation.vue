@@ -19,7 +19,7 @@ function handleAnimationChange(newAnimation: typeof animation.value) {
     <SkButton label="向下滑动" @click="handleAnimationChange('slide-down')" />
 
     <SkOverlay v-model:visible="visible" :animation="animation">
-      <div class="p-4 bg-white rounded-lg">
+      <div class="p-4 bg-page rounded-lg">
         <span>当前动画: {{ animation }}</span>
       </div>
     </SkOverlay>
