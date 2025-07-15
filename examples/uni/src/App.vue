@@ -3,7 +3,7 @@ import { onLaunch } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 
 // 主题状态管理
-const currentTheme = ref<'light' | 'dark'>('light')
+const currentTheme = ref<'light' | 'dark' | ''>('')
 
 // 应用主题到 DOM（带缓存避免重复操作）
 function applyTheme(theme: 'light' | 'dark') {
