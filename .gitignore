@@ -1,25 +1,23 @@
 # dev/build outputs
-.hbuilderx
-.output
-.data
-.nuxt
-.nitro
-.cache
 dist
 demo
 scripts
-tsdown.config.ts
 
 # Node dependencies
 node_modules
 uni_modules
+
 # Logs
 logs
 *.log
+npm-debug.log*
+.pnpm-debug.log*
+trace-*.json
 
 # Misc
 .DS_Store
 .fleet
+.git
 .idea
 .gitmodules
 
@@ -28,7 +26,7 @@ logs
 .env.*
 !.env.example
 
-# Close Source
-packages/**/validator
-packages/**/styles
-dev_*
+# Bundle
+packages/skiyee-uni-ui/**/styles
+packages/skiyee-uni-ui/**/validator
+tsdown.config.ts

@@ -44,7 +44,8 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm build",
+    "publish": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
     "@skiyee/ui-preset": ">=workspace:*",
@@ -74,7 +75,7 @@
     "@skiyee/ui-preset": "workspace:*",
     "@uni-helper/uni-app-types": "1.0.0-alpha.6",
     "mkdist": "^2.3.0",
-    "vue": "catalog:ui",
+    "vue": "catalog:",
     "vue-sfc-transformer": "^0.1.16",
     "zod": "^3.25.64"
   },

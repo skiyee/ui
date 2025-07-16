@@ -8,7 +8,13 @@
     "email": "319619193@qq.com"
   },
   "scripts": {
-    "demo:dev": "pnpm --filter uni-cli-example dev"
+    "prepare": "simple-git-hooks",
+    "build": "pnpm --filter @skiyee/* build",
+    "demo:dev": "pnpm --filter uni-cli-example dev",
+    "release": "bumpp package.json examples/ui/package.json packages/skiyee-uni-ui/package.json",
+    "publish": "pnpm --filter @skiyee/uni-ui publish",
+    "preset:release": "bumpp --filter @skiyee/ui-preset release",
+    "preset:publish": "pnpm --filter @skiyee/ui-preset publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -22,20 +28,21 @@
     "eslint": "^9.26.0",
     "simple-git-hooks": "^2.13.0",
     "tsdown": "^0.12.9",
-    "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.3"
+    "vue": "catalog:"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@tailwindcss/oxide",
       "@uni-helper/unocss-preset-uni",
-      "better-sqlite3",
+      "core-js",
       "esbuild",
-      "sharp",
+      "simple-git-hooks",
+      "unrs-resolver",
       "vue-demi"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit ${1}"
   },
   "config": {
     "commitizen": {
