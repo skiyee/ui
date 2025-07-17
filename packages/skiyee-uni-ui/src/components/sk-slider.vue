@@ -87,7 +87,7 @@ export interface SkSliderSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance, isShallow, ref } from 'vue'
+import { computed, getCurrentInstance, ref } from 'vue'
 
 import { useParent } from '../composables'
 import { SK_FIELD_KEY } from '../constants'
@@ -140,10 +140,6 @@ const percentage = computed(() => {
   const range = props.max - props.min
   const value = Math.max(props.min, Math.min(props.max, modelValue.value))
   return ((value - props.min) / range) * 100
-})
-
-const isFillStarted = computed(() => {
-  return percentage.value > 0
 })
 
 const isShowValue = computed(() => {
@@ -285,7 +281,7 @@ function getMarkPosition(mark: SliderMark): string {
     <!-- 滑块容器 -->
     <div
       id="sk-slider-track"
-      :class="classes.track({ fillStart: isFillStarted })"
+      :class="classes.track()"
       @tap="handleClick"
     >
       <!-- 填充条 -->
