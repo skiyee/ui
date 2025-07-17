@@ -65,16 +65,14 @@ function handleReset() {
         <SkInput v-model="formData.name" placeholder="请输入您的姓名" />
       </SkField>
 
-      <template #footer>
-        <div class="flex gap-2 mt-4">
-          <SkButton color="brand" :disabled="isSubmitting" @click="formRef?.submit()">
-            <SkSpinner v-if="isSubmitting" color="current" />{{ isSubmitting ? '提交中...' : '提交' }}
-          </SkButton>
-          <SkButton variant="bound" :disabled="isSubmitting" @click="formRef?.reset()">
-            重置
-          </SkButton>
-        </div>
-      </template>
+      <div class="flex gap-2 mt-4">
+        <SkButton type="submit" color="brand" :disabled="isSubmitting">
+          <SkSpinner v-if="isSubmitting" color="current" />{{ isSubmitting ? '提交中...' : '提交' }}
+        </SkButton>
+        <SkButton variant="bound" :disabled="isSubmitting" @click="formRef?.reset()">
+          重置
+        </SkButton>
+      </div>
     </SkForm>
 
     <div v-if="submitResult" class="mt-4 p-3 bg-gray-100 rounded">

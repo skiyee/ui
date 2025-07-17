@@ -20,6 +20,11 @@ import type { SkButtonUcvProps } from '../styles'
 
 export interface SkButtonProps {
   /**
+   * 按钮类型
+   * @default 'button'
+   */
+  type?: 'button' | 'submit';
+  /**
    * 按钮标签文本
    */
   label?: string;
@@ -78,6 +83,8 @@ export interface SkButtonSlots {
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import { useParent } from '../composables'
+import { SK_FORM_KEY } from '../constants'
 import { SkButtonUcv } from '../styles'
 
 defineOptions({
@@ -88,6 +95,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<SkButtonProps>(), {
+  type: 'button',
   color: 'brand',
   variant: 'solid',
   size: 'medium',
@@ -100,14 +108,28 @@ const emits = defineEmits<SkButtonEmits>()
 
 defineSlots<SkButtonSlots>()
 
-const classes = computed(() => SkButtonUcv(props))
+const { parent } = useParent(SK_FORM_KEY)
 
-const canClick = computed(() => !(props.disabled))
+const isDisabled = computed(() =>
+  props.disabled || (props.type === 'submit' && parent?.props.disabled),
+)
+
+const classes = computed(() => {
+  return SkButtonUcv({
+    ...props,
+    disabled: isDisabled.value,
+  })
+})
 
 function handleClick(event: any) {
-  if (!canClick.value) {
+  if (isDisabled.value) {
     return
   }
+
+  if (props.type === 'submit') {
+    parent?.handleSubmit()
+  }
+
   emits('click', event)
 }
 </script>
