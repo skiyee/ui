@@ -5,7 +5,7 @@
     "paths": {
       "~/*": ["./src/*"]
     },
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+    "types": ["node", "@dcloudio/types", "@uni-helper/uni-app-types"]
   },
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-app-types/volar-plugin"]

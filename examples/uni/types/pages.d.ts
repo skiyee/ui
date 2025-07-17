@@ -43,7 +43,6 @@ interface NavigateToOptions {
        "/pages-form/checkbox/base" |
        "/pages-form/checkbox/color" |
        "/pages-form/checkbox/controlled" |
-       "/pages-form/checkbox/direction" |
        "/pages-form/checkbox/disabled" |
        "/pages-form/checkbox/group-color" |
        "/pages-form/checkbox/group-controlled" |
@@ -51,6 +50,7 @@ interface NavigateToOptions {
        "/pages-form/checkbox/group-size" |
        "/pages-form/checkbox/indeterminate" |
        "/pages-form/checkbox/label" |
+       "/pages-form/checkbox/orientation" |
        "/pages-form/checkbox/size" |
        "/pages-form/checkbox/usage" |
        "/pages-form/checkbox/value" |
@@ -60,8 +60,8 @@ interface NavigateToOptions {
        "/pages-form/field/error" |
        "/pages-form/field/label-width" |
        "/pages-form/field/label" |
-       "/pages-form/field/layout" |
        "/pages-form/field/name" |
+       "/pages-form/field/orientation" |
        "/pages-form/field/required" |
        "/pages-form/field/size" |
        "/pages-form/form/base" |
@@ -98,13 +98,13 @@ interface NavigateToOptions {
        "/pages-form/number-input/usage" |
        "/pages-form/radio/base" |
        "/pages-form/radio/color" |
-       "/pages-form/radio/direction" |
        "/pages-form/radio/disabled" |
        "/pages-form/radio/group-color" |
        "/pages-form/radio/group-controlled" |
        "/pages-form/radio/group-disabled" |
        "/pages-form/radio/group-size" |
        "/pages-form/radio/label" |
+       "/pages-form/radio/orientation" |
        "/pages-form/radio/size" |
        "/pages-form/radio/value" |
        "/pages-form/slider/base" |

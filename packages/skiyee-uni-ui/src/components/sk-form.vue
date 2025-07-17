@@ -18,6 +18,7 @@
  * @see 更多示例请参考文档: https://skiyee-ui.netlify.app/docs/components/form/form
  */
 
+import type { SkFieldUcvProps } from '../styles'
 import type { FormContext, FormFieldState } from '../types'
 // eslint-disable-next-line import/no-duplicates
 import type { Schema, SchemaInferInput, SchemaInferOutput } from '../validator'
@@ -32,6 +33,26 @@ export interface SkFormProps<TSchema extends Schema> {
    * 表单数据内容
    */
   values?: Partial<SchemaInferInput<TSchema>>;
+  /**
+   * 字段标签宽度
+   * @default 140
+   * @note 如果未填写单位，默认为 rpx，否则原样输出
+   * @limit 仅水平布局时有效
+   * @description 被 SkField 的 labelWidth 继承/覆盖
+   */
+  labelWidth?: string | number;
+  /**
+   * 字段布局方向
+   * @default 'vertical'
+   * @description 被 SkField 的 orientation 继承/覆盖
+   */
+  orientation?: SkFieldUcvProps['orientation'];
+  /**
+   * 字段尺寸大小
+   * @default 'medium'
+   * @description 被 SkField 的 size 继承/覆盖
+   */
+  size?: SkFieldUcvProps['size'];
   /**
    * 是否禁用整个表单
    * @default false
@@ -65,12 +86,24 @@ export interface SkFormEmits<TSchema extends Schema> {
 export interface SkFormSlots {
   /**
    * 表单内容区域
+   * @param errors 全局错误信息
    */
-  default?: () => any;
+  default?: (props: { errors: string[] }) => any;
+}
+
+export interface SkFormExposes<T extends Schema> {
   /**
-   * 表单底部区域，通常放按钮
+   * 验证表单
    */
-  footer?: () => any;
+  validate: () => Promise<FormValidationResult<SchemaInferOutput<T>>>;
+  /**
+   * 提交表单
+   */
+  submit: () => Promise<void>;
+  /**
+   * 重置表单验证状态
+   */
+  resetValidation: () => void;
 }
 </script>
 
@@ -92,8 +125,6 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<SkFormProps<T>>(), {
-  size: 'medium',
-  disabled: false,
   validateOn: () => ['change', 'blur'],
   debounceTime: 300,
 })
@@ -173,17 +204,6 @@ function clearFieldError(name: string) {
 
 const currentFormData = computed<Partial<SchemaInferInput<T>>>(() => props.values || {})
 
-/*
-// 重置字段
-function resetField(name: string) {
-  delete fields.value[name]
-  delete touched.value[name]
-  delete dirty.value[name]
-
-  clearFieldError(name)
-}
-*/
-
 async function validateField(
   name: string,
   value: unknown,
@@ -213,9 +233,20 @@ async function validateField(
   return result
 }
 
+/*
+// 清除字段
+function clearField(name: string) {
+  delete fields.value[name]
+  delete touched.value[name]
+  delete dirty.value[name]
+
+  clearFieldError(name)
+}
+*/
+
 const debounceTimers = new Map<string, NodeJS.Timeout>()
 
-function handleFieldValidation(name: string, value: unknown) {
+function validateFieldByDebounce(name: string, value: unknown) {
   if (debounceTimers.has(name)) {
     clearTimeout(debounceTimers.get(name)!)
   }
@@ -242,7 +273,7 @@ function handleFieldChange(name: string, value: unknown) {
   setFieldValue(name, value)
 
   if (props.validateOn.includes('change')) {
-    handleFieldValidation(name, value)
+    validateFieldByDebounce(name, value)
   }
 }
 
@@ -261,7 +292,7 @@ function handleFieldBlur(name: string, value: unknown) {
   */
 
   if (props.validateOn.includes('blur')) {
-    handleFieldValidation(name, value)
+    validateFieldByDebounce(name, value)
   }
 }
 
@@ -269,7 +300,7 @@ function handleFieldFocus(name: string, value: unknown) {
   setFieldTouched(name, true)
 
   if (props.validateOn.includes('focus')) {
-    handleFieldValidation(name, value)
+    validateFieldByDebounce(name, value)
   }
 }
 
@@ -284,7 +315,9 @@ async function validateForm(): Promise<FormValidationResult<SchemaInferOutput<T>
   isGlobalValidating.value = true
 
   try {
-    const result = await formValidator.value.validateForm(currentFormData.value as SchemaInferInput<T>)
+    const result = await formValidator.value.validateForm(
+      currentFormData.value as SchemaInferInput<T>,
+    )
 
     globalErrors.value = result.formErrors
     isGlobalValid.value = result.success
@@ -320,7 +353,7 @@ async function submitForm() {
   }
 }
 
-function resetForm() {
+function resetFormValidation() {
   issues.value = {}
   errors.value = {}
   fields.value = {}
@@ -332,8 +365,6 @@ function resetForm() {
 
   debounceTimers.forEach(timer => clearTimeout(timer))
   debounceTimers.clear()
-
-  emits('reset')
 }
 
 const formContext = readonly({
@@ -348,33 +379,21 @@ const formContext = readonly({
   handleFieldChange,
   handleFieldBlur,
   handleFieldFocus,
+
+  handleSubmit: submitForm,
 })
 
 useProvide(SK_FORM_KEY)(formContext as FormContext<T>)
 
-defineExpose({
+defineExpose<SkFormExposes<T>>({
   validate: validateForm,
   submit: submitForm,
-  reset: resetForm,
+  resetValidation: resetFormValidation,
 })
 </script>
 
 <template>
   <form>
-    <div class="flex flex-col sk-unit:gap-14">
-      <slot />
-    </div>
-
-    <template v-if="globalErrors.length > 0">
-      <div
-        v-for="error in globalErrors"
-        :key="error"
-        class="text-danger text-sup-medium"
-      >
-        {{ error }}
-      </div>
-    </template>
-
-    <slot name="footer" />
+    <slot :errors="globalErrors" />
   </form>
 </template>

@@ -10,7 +10,8 @@
  * @see 更多文档: https://skiyee-ui.netlify.app/docs/
  */
 
-import type { Schema, SchemaInferInput } from '../validator/schema.type'
+import type { SkFieldUcvProps } from '../styles'
+import type { Schema, SchemaInferInput } from '../validator'
 
 /**
  * 表单字段状态
@@ -98,10 +99,12 @@ export interface FormContext<TSchema extends Schema = Schema> {
   props: {
     schema?: TSchema;
     values?: Partial<SchemaInferInput<TSchema>>;
+    labelWidth?: string | number;
+    orientation?: SkFieldUcvProps['orientation'];
+    size?: SkFieldUcvProps['size'];
     disabled?: boolean;
     validateOn?: ('change' | 'blur' | 'focus')[];
-    debounceMs?: number;
-    abortEarly?: boolean;
+    debounceTime?: number;
   };
 
   state: {
@@ -114,4 +117,6 @@ export interface FormContext<TSchema extends Schema = Schema> {
   handleFieldChange: (name: string, value: unknown) => void;
   handleFieldFocus: (name: string, value: unknown) => void;
   handleFieldBlur: (name: string, value: unknown) => void;
+
+  handleSubmit: () => Promise<void>;
 }

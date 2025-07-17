@@ -24,7 +24,7 @@ export interface SkCheckboxGroupProps {
    * 排列方向
    * @default 'vertical'
    */
-  direction?: SkCheckboxGroupUcvProps['direction'];
+  orientation?: SkCheckboxGroupUcvProps['orientation'];
   /**
    * 整个组复选框尺寸，会被 SkCheckbox 继承或覆盖
    * @default 'medium'
@@ -77,7 +77,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<SkCheckboxGroupProps>(), {
-  direction: 'vertical',
+  orientation: 'vertical',
   size: 'medium',
   color: 'brand',
   disabled: false,
