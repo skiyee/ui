@@ -70,10 +70,10 @@ function handleReset() {
       </SkField>
 
       <div class="flex gap-2 mt-4">
-        <SkButton color="brand" :disabled="isSubmitting" @click="formRef?.submit">
+        <SkButton type="submit" color="brand" :disabled="isSubmitting">
           <SkSpinner v-if="isSubmitting" color="current" />{{ isSubmitting ? '提交中...' : '提交' }}
         </SkButton>
-        <SkButton variant="bound" :disabled="isSubmitting" @click="handleReset">
+        <SkButton variant="bound" :disabled="isSubmitting" @click="formRef?.reset()">
           重置校验
         </SkButton>
       </div>
