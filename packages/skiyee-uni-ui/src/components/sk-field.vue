@@ -31,37 +31,39 @@ export interface SkFieldProps {
   /**
    * 字段标签宽度
    * @default 140
+   * @note 如果未填写单位，默认为 rpx，否则原样输出
    * @limit 仅水平布局时有效
-   * @description 如果未填写单位，默认为 rpx，否则原样输出
+   * @description 设置可以覆盖 SkForm 的 labelWidth
    */
   labelWidth?: string | number;
   /**
-   * 是否必填
+   * 字段必填标识
    * @default false
    */
   required?: boolean;
   /**
-   * 描述信息
+   * 字段描述信息
    */
   description?: string;
   /**
-   * 错误信息
+   * 字段错误信息
    * @description 优先级高于表单校验抛出的错误
    */
   error?: string;
   /**
-   * 字段尺寸
+   * 字段布局方向
+   * @default 'vertical'
+   * @description 设置可以覆盖 SkForm 的 orientation
+   */
+  orientation?: SkFieldUcvProps['orientation'];
+  /**
+   * 字段尺寸大小
    * @default 'medium'
+   * @description 设置可以覆盖 SkForm 的 size
    */
   size?: SkFieldUcvProps['size'];
   /**
-   * 布局方式
-   * @default 'vertical'
-   * @description 优先级高于 SkForm 的 layout
-   */
-  layout?: SkFieldUcvProps['layout'];
-  /**
-   * 是否禁用
+   * 字段是否禁用
    * @default false
    */
   disabled?: boolean;
@@ -105,12 +107,17 @@ const slots = defineSlots<SkFieldSlots>()
 
 const { parent } = useParent(SK_FORM_KEY)
 
-const isDisabled = computed(() => props.disabled || parent?.props?.disabled)
+const propsWithParent = computed(() => ({
+  labelWidth: props.labelWidth ?? parent?.props.labelWidth ?? 140,
+  size: props.size || parent?.props.size || 'medium',
+  orientation: props.orientation || parent?.props.orientation || 'vertical',
+  disabled: props.disabled || parent?.props.disabled,
+}))
 
 const classes = computed(() => {
   const computedProps = {
     ...props,
-    disabled: isDisabled.value,
+    disabled: propsWithParent.value.disabled,
   }
   return SkFieldUcv(computedProps)
 })
@@ -123,15 +130,15 @@ const fieldState = computed(() => {
 })
 
 const labelWidthWithUnit = computed(() => {
-  if (props.layout === 'vertical') {
+  if (propsWithParent.value.orientation === 'vertical') {
     return ''
   }
 
-  if (!Number.isNaN(Number(props.labelWidth))) {
-    return `${props.labelWidth}rpx`
+  if (!Number.isNaN(Number(propsWithParent.value.labelWidth))) {
+    return `${propsWithParent.value.labelWidth}rpx`
   }
 
-  return props.labelWidth
+  return propsWithParent.value.labelWidth
 })
 
 const shouldShowError = computed(() => {
@@ -192,7 +199,7 @@ const fieldContext = readonly({
   props: reactive({
     name: toRef(props, 'name'),
     size: toRef(props, 'size'),
-    disabled: isDisabled,
+    disabled: computed(() => propsWithParent.value.disabled),
   }),
   handleFocus,
   handleBlur,

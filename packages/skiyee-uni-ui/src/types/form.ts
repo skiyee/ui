@@ -10,6 +10,7 @@
  * @see 更多文档: https://skiyee-ui.netlify.app/docs/
  */
 
+import type { SkFieldUcvProps } from '../styles'
 import type { Schema, SchemaInferInput } from '../validator'
 
 /**
@@ -98,6 +99,9 @@ export interface FormContext<TSchema extends Schema = Schema> {
   props: {
     schema?: TSchema;
     values?: Partial<SchemaInferInput<TSchema>>;
+    labelWidth?: string | number;
+    orientation?: SkFieldUcvProps['orientation'];
+    size?: SkFieldUcvProps['size'];
     disabled?: boolean;
     validateOn?: ('change' | 'blur' | 'focus')[];
     debounceTime?: number;

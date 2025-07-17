@@ -18,6 +18,7 @@
  * @see 更多示例请参考文档: https://skiyee-ui.netlify.app/docs/components/form/form
  */
 
+import type { SkFieldUcvProps } from '../styles'
 import type { FormContext, FormFieldState } from '../types'
 // eslint-disable-next-line import/no-duplicates
 import type { Schema, SchemaInferInput, SchemaInferOutput } from '../validator'
@@ -32,6 +33,26 @@ export interface SkFormProps<TSchema extends Schema> {
    * 表单数据内容
    */
   values?: Partial<SchemaInferInput<TSchema>>;
+  /**
+   * 字段标签宽度
+   * @default 140
+   * @note 如果未填写单位，默认为 rpx，否则原样输出
+   * @limit 仅水平布局时有效
+   * @description 被 SkField 的 labelWidth 继承/覆盖
+   */
+  labelWidth?: string | number;
+  /**
+   * 字段布局方向
+   * @default 'vertical'
+   * @description 被 SkField 的 orientation 继承/覆盖
+   */
+  orientation?: SkFieldUcvProps['orientation'];
+  /**
+   * 字段尺寸大小
+   * @default 'medium'
+   * @description 被 SkField 的 size 继承/覆盖
+   */
+  size?: SkFieldUcvProps['size'];
   /**
    * 是否禁用整个表单
    * @default false
