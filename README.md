@@ -2,15 +2,15 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset=".github/logo-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset=".github/logo-light.svg">
-    <img alt="skiyee/ui" src=".github/logo-light.svg" width="578" height="228" style="max-width: 100%;">
+    <img alt="skiyee/ui" src=".github/logo-light.svg" width="100%" height="auto" style="max-width: 100%;">
   </picture>
 </a>
 
 <h1>
   skiyee/ui
-  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/v/@skiyee/ui-preset?color=2563EB&labelColor=18181B&label=npm" alt="npm version"></a>
   <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/dm/@skiyee/ui-preset?color=2563EB&labelColor=18181B&label=downloads" alt="npm downloads"></a>
-  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/l/@skiyee/ui-preset?style=flat&color=2563EB&labelColor=18181B&label=license" alt="License"></a>
+  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/l/@skiyee/ui-preset?style=flat&color=2563EB&labelColor=18181B&label=license" alt="license"></a>
+  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/github/contributors/skiyee/ui?color=2563EB&labelColor=18181B&label=contributors" alt="contributors"></a>
 </h1>
 
 一个由原子化CSS驱动、符合直觉设计、高度定制化、面向AI时代的移动端 UI 库，助力开发者打造独特且差异化的移动端应用程序
