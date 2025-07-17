@@ -6,7 +6,7 @@ const selected = ref('')
 
 <template>
   <div class="p-4">
-    <SkRadioGroup v-model="selected" direction="horizontal">
+    <SkRadioGroup v-model="selected" orientation="horizontal">
       <SkRadio value="option1" label="黄山" />
       <SkRadio value="option2" label="庐山" />
       <SkRadio value="option3" label="雁荡山" />

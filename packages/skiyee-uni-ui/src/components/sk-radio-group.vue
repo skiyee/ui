@@ -24,7 +24,7 @@ export interface SkRadioGroupProps {
    * 排列方向
    * @default 'vertical'
    */
-  direction?: SkRadioGroupUcvProps['direction'];
+  orientation?: SkRadioGroupUcvProps['orientation'];
   /**
    * 整个组单选框尺寸，会被 SkRadio 继承或覆盖
    * @default 'medium'
@@ -76,7 +76,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<SkRadioGroupProps>(), {
-  direction: 'vertical',
+  orientation: 'vertical',
   size: 'medium',
   color: 'brand',
   disabled: false,

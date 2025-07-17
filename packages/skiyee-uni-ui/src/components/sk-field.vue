@@ -50,16 +50,17 @@ export interface SkFieldProps {
    */
   error?: string;
   /**
+   * 布局方向
+   * @default 'vertical'
+   * @description 优先级高于 SkForm 的 orientation
+   */
+  orientation?: SkFieldUcvProps['orientation'];
+  /**
    * 字段尺寸
    * @default 'medium'
+   * @description 优先级高于 SkForm 的 size
    */
   size?: SkFieldUcvProps['size'];
-  /**
-   * 布局方式
-   * @default 'vertical'
-   * @description 优先级高于 SkForm 的 layout
-   */
-  layout?: SkFieldUcvProps['layout'];
   /**
    * 是否禁用
    * @default false
@@ -94,10 +95,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<SkFieldProps>(), {
-  labelWidth: 140,
   required: false,
-  size: 'medium',
-  layout: 'vertical',
   disabled: false,
 })
 
@@ -105,12 +103,14 @@ const slots = defineSlots<SkFieldSlots>()
 
 const { parent } = useParent(SK_FORM_KEY)
 
-const isDisabled = computed(() => props.disabled || parent?.props?.disabled)
+const propsWithParent = computed(() => ({
+  disabled: props.disabled || parent?.props.disabled,
+}))
 
 const classes = computed(() => {
   const computedProps = {
     ...props,
-    disabled: isDisabled.value,
+    ...propsWithParent.value,
   }
   return SkFieldUcv(computedProps)
 })
@@ -123,7 +123,7 @@ const fieldState = computed(() => {
 })
 
 const labelWidthWithUnit = computed(() => {
-  if (props.layout === 'vertical') {
+  if (props.orientation === 'vertical') {
     return ''
   }
 
@@ -190,9 +190,9 @@ function handleBlur(value: unknown) {
 
 const fieldContext = readonly({
   props: reactive({
-    name: toRef(props, 'name'),
-    size: toRef(props, 'size'),
-    disabled: isDisabled,
+    name: toRef(() => props.name),
+    size: toRef(() => props.size),
+    disabled: toRef(() => propsWithParent.value.disabled),
   }),
   handleFocus,
   handleBlur,

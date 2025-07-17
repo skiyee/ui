@@ -177,10 +177,6 @@
           "type": "page"
         },
         {
-          "path": "checkbox/direction",
-          "type": "page"
-        },
-        {
           "path": "checkbox/disabled",
           "type": "page"
         },
@@ -206,6 +202,10 @@
         },
         {
           "path": "checkbox/label",
+          "type": "page"
+        },
+        {
+          "path": "checkbox/orientation",
           "type": "page"
         },
         {
@@ -245,11 +245,11 @@
           "type": "page"
         },
         {
-          "path": "field/layout",
+          "path": "field/name",
           "type": "page"
         },
         {
-          "path": "field/name",
+          "path": "field/orientation",
           "type": "page"
         },
         {
@@ -397,10 +397,6 @@
           "type": "page"
         },
         {
-          "path": "radio/direction",
-          "type": "page"
-        },
-        {
           "path": "radio/disabled",
           "type": "page"
         },
@@ -422,6 +418,10 @@
         },
         {
           "path": "radio/label",
+          "type": "page"
+        },
+        {
+          "path": "radio/orientation",
           "type": "page"
         },
         {
