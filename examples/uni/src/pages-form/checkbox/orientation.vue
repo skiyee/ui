@@ -6,7 +6,7 @@ const checkedItems = ref([])
 
 <template>
   <div class="p-4">
-    <SkCheckboxGroup v-model="checkedItems" direction="horizontal">
+    <SkCheckboxGroup v-model="checkedItems" orientation="horizontal">
       <SkCheckbox value="option1" label="黄山" />
       <SkCheckbox value="option2" label="庐山" />
       <SkCheckbox value="option3" label="雁荡山" />
