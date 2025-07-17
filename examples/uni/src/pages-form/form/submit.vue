@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { SkFormExposes } from '@skiyee/uni-ui/components/sk-form.vue'
+
 import { ref } from 'vue'
 import { z } from 'zod'
 
@@ -12,7 +14,7 @@ const formData = ref<Partial<IFormData>>({
   name: '',
 })
 
-const formRef = ref()
+const formRef = ref<SkFormExposes>()
 const isSubmitting = ref(false)
 const submitResult = ref('')
 
@@ -45,8 +47,11 @@ async function handleSubmit(data: IFormData) {
 
 function handleReset() {
   submitResult.value = ''
+
+  formRef.value?.resetValidation()
+
   uni.showToast({
-    title: '表单已重置',
+    title: '表单校验状态已重置',
     icon: 'none',
   })
 }
@@ -59,25 +64,22 @@ function handleReset() {
       :schema="formSchema"
       :values="formData"
       @submit="handleSubmit"
-      @reset="handleReset"
     >
       <SkField name="name" label="姓名" required>
         <SkInput v-model="formData.name" placeholder="请输入您的姓名" />
       </SkField>
 
-      <template #footer>
-        <div class="flex gap-2 mt-4">
-          <SkButton color="brand" :disabled="isSubmitting" @click="formRef?.submit()">
-            <SkSpinner v-if="isSubmitting" color="current" />{{ isSubmitting ? '提交中...' : '提交' }}
-          </SkButton>
-          <SkButton variant="bound" :disabled="isSubmitting" @click="formRef?.reset()">
-            重置
-          </SkButton>
-        </div>
-      </template>
+      <div class="flex gap-2 mt-4">
+        <SkButton color="brand" :disabled="isSubmitting" @click="formRef?.submit">
+          <SkSpinner v-if="isSubmitting" color="current" />{{ isSubmitting ? '提交中...' : '提交' }}
+        </SkButton>
+        <SkButton variant="bound" :disabled="isSubmitting" @click="handleReset">
+          重置校验
+        </SkButton>
+      </div>
     </SkForm>
 
-    <div v-if="submitResult" class="mt-4 p-3 bg-gray-100 rounded">
+    <div v-if="submitResult" class="mt-4 p-3 bg-muted rounded">
       <pre class="text-sm">{{ submitResult }}</pre>
     </div>
   </div>
