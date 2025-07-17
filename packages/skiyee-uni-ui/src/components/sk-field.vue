@@ -96,10 +96,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<SkFieldProps>(), {
-  labelWidth: 140,
   required: false,
-  size: 'medium',
-  layout: 'vertical',
   disabled: false,
 })
 
@@ -117,7 +114,7 @@ const propsWithParent = computed(() => ({
 const classes = computed(() => {
   const computedProps = {
     ...props,
-    disabled: propsWithParent.value.disabled,
+    ...propsWithParent.value,
   }
   return SkFieldUcv(computedProps)
 })
@@ -197,9 +194,9 @@ function handleBlur(value: unknown) {
 
 const fieldContext = readonly({
   props: reactive({
-    name: toRef(props, 'name'),
-    size: toRef(props, 'size'),
-    disabled: computed(() => propsWithParent.value.disabled),
+    name: toRef(() => props.name),
+    size: toRef(() => props.size),
+    disabled: toRef(() => propsWithParent.value.disabled),
   }),
   handleFocus,
   handleBlur,
