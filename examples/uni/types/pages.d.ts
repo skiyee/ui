@@ -67,8 +67,11 @@ interface NavigateToOptions {
        "/pages-form/form/base" |
        "/pages-form/form/debounce-time" |
        "/pages-form/form/disabled" |
+       "/pages-form/form/label-width" |
+       "/pages-form/form/orientation" |
        "/pages-form/form/schema-arktype" |
        "/pages-form/form/schema-zod" |
+       "/pages-form/form/size" |
        "/pages-form/form/submit" |
        "/pages-form/form/validate-on" |
        "/pages-form/form/values" |
