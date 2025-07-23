@@ -273,11 +273,23 @@
           "type": "page"
         },
         {
+          "path": "form/label-width",
+          "type": "page"
+        },
+        {
+          "path": "form/orientation",
+          "type": "page"
+        },
+        {
           "path": "form/schema-arktype",
           "type": "page"
         },
         {
           "path": "form/schema-zod",
+          "type": "page"
+        },
+        {
+          "path": "form/size",
           "type": "page"
         },
         {

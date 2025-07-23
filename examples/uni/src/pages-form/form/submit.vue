@@ -14,7 +14,7 @@ const formData = ref<Partial<IFormData>>({
   name: '',
 })
 
-const formRef = ref<SkFormExposes>()
+const formRef = ref<SkFormExposes<typeof formSchema>>()
 const isSubmitting = ref(false)
 const submitResult = ref('')
 
@@ -47,6 +47,9 @@ async function handleSubmit(data: IFormData) {
 
 function handleReset() {
   submitResult.value = ''
+  formData.value = {
+    name: '',
+  }
 
   formRef.value?.resetValidation()
 
@@ -73,8 +76,8 @@ function handleReset() {
         <SkButton type="submit" color="brand" :disabled="isSubmitting">
           <SkSpinner v-if="isSubmitting" color="current" />{{ isSubmitting ? '提交中...' : '提交' }}
         </SkButton>
-        <SkButton variant="bound" :disabled="isSubmitting" @click="formRef?.reset()">
-          重置校验
+        <SkButton variant="bound" :disabled="isSubmitting" @click="handleReset">
+          重置提交与校验
         </SkButton>
       </div>
     </SkForm>
