@@ -15,7 +15,6 @@
 | 主题     | 地址                                                                                                       |
 |----------|------------------------------------------------------------------------------------------------------------|
 | 查阅文档 | [skiyee-ui.netlify.app](https://skiyee-ui.netlify.app/)                                                    |
-| 发电赞赏 | [微信赞赏](https://github.com/skiyee/sponsors) / [爱发电](https://afdian.com/a/skiyee)                     |
 | 社区交流 | [Q群: 663506256](https://qm.qq.com/q/ycsLPZzkvm) / [Discussions](https://github.com/skiyee/ui/discussions) |
 
 ## 库包
