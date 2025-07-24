@@ -1,38 +1,28 @@
 <a href="https://skiyee-ui.netlify.app" target="_blank">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/logo-light.svg">
-    <img alt="skiyee/ui" src=".github/logo-light.svg" width="100%" height="auto" style="max-width: 100%;">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/skiyee/ui/HEAD/.github/logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/skiyee/ui/HEAD/.github/logo-light.svg">
+    <img alt="skiyee/ui" src="https://raw.githubusercontent.com/skiyee/ui/HEAD/.github/logo-light.svg" width="100%" height="auto" style="max-width: 100%;">
   </picture>
 </a>
 
-<h1>
-  skiyee/ui
-  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/dm/@skiyee/ui-preset?color=2563EB&labelColor=18181B&label=downloads" alt="npm downloads"></a>
-  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/l/@skiyee/ui-preset?style=flat&color=2563EB&labelColor=18181B&label=license" alt="license"></a>
-  <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/github/contributors/skiyee/ui?color=2563EB&labelColor=18181B&label=contributors" alt="contributors"></a>
-</h1>
+# skiyee/ui [![skiyee/ui][github-license]][github-src] [![skiyee/ui][npm-total-downloads]][github-src] [![skiyee/ui][github-contributors]][github-src]
 
 一个由原子化CSS驱动、符合直觉设计、高度定制化、面向AI时代的移动端 UI 库，助力开发者打造独特且差异化的移动端应用程序
 
-## 文档
+## 链接
 
-获取更多的文档内容，访问 [skiyee-ui.netlify.app](https://skiyee-ui.netlify.app/)
+| 主题     | 地址                                                                                                       |
+|----------|------------------------------------------------------------------------------------------------------------|
+| 查阅文档 | [skiyee-ui.netlify.app](https://skiyee-ui.netlify.app/)                                                    |
+| 发电赞赏 | [微信赞赏](https://github.com/skiyee/sponsors) / [爱发电](https://afdian.com/a/skiyee)                     |
+| 社区交流 | [Q群: 663506256](https://qm.qq.com/q/ycsLPZzkvm) / [Discussions](https://github.com/skiyee/ui/discussions) |
 
 ## 库包
 
-| 名称                                                              | 框架   | 版本                                                                                                                                                              |
-|-------------------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`@skiyee/uni-ui`](https://github.com/skiyee/ui/tree/main/uni-ui) | UniApp | <a href="https://www.github.com/skiyee/ui"><img src="https://img.shields.io/npm/v/@skiyee/uni-ui?color=2563EB&labelColor=18181B&label=npm" alt="npm version"></a> |
-
-## 作者
-
-- sKy [@skiyee](https://github.com/skiyee)
-
-## 社区
-
-- [QQ 交流群](https://qm.qq.com/q/ycsLPZzkvm) - 实时与社区的小伙伴进行交流和分享
-- [Discussions](https://github.com/skiyee/ui/discussions) - 直接从社区提出、获取、询问最佳实践
+| 名称           | 适配   | 版本                                         | 下载                                           |
+|----------------|--------|----------------------------------------------|------------------------------------------------|
+| @skiyee/uni-ui | UniApp | [![skiyee/ui][npm-uni-version]][npm-uni-src] | [![skiyee/ui][npm-uni-downloads]][npm-uni-src] |
 
 ## 赞赏
 
@@ -42,6 +32,29 @@
   </a>
 </p>
 
+## 贡献
+
+<a href="https://github.com/skiyee/ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=skiyee/ui" />
+</a>
+
+## 星流
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=skiyee/ui&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=skiyee/ui&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=skiyee/ui&type=Date" />
+</picture>
+
 ## 许可证
 
-[Apache License 2.0](./LICENSE) © 2025-PRESENT [Skiyee](https://github.com/skiyee)
+[Apache License 2.0](./LICENSE) © 2025-PRESENT [sKy (skiyee)](https://github.com/skiyee)
+
+[github-src]: https://github.com/skiyee/ui
+[github-uni-src]: https://github.com/skiyee/ui/tree/main/uni-ui
+[github-license]: https://img.shields.io/github/license/skiyee/ui?style=flat&color=2563EB&labelColor=18181B&label=license
+[github-contributors]: https://img.shields.io/github/contributors/skiyee/ui?style=flat&color=2563EB&labelColor=18181B&label=contributors
+[npm-total-downloads]: https://img.shields.io/npm/dm/@skiyee/ui-preset?color=2563EB&labelColor=18181B&label=downloads
+[npm-uni-src]: https://www.npmjs.com/package/@skiyee/uni-ui
+[npm-uni-version]: https://img.shields.io/npm/v/@skiyee/uni-ui?color=2563EB&labelColor=18181B&label=version
+[npm-uni-downloads]: https://img.shields.io/npm/dm/@skiyee/uni-ui?color=2563EB&labelColor=18181B&label=downloads
