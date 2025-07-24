@@ -158,6 +158,30 @@
         {
           "path": "overlay/z-index",
           "type": "page"
+        },
+        {
+          "path": "roller/base",
+          "type": "page"
+        },
+        {
+          "path": "roller/custom",
+          "type": "page"
+        },
+        {
+          "path": "roller/disabled",
+          "type": "page"
+        },
+        {
+          "path": "roller/item-height",
+          "type": "page"
+        },
+        {
+          "path": "roller/multiple",
+          "type": "page"
+        },
+        {
+          "path": "roller/visible-count",
+          "type": "page"
         }
       ]
     },
