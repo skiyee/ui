@@ -13,6 +13,18 @@
   var eventTarget;
   var supportTouch = 'ontouchstart' in window;
 
+  // 滑动检测相关变量
+  var swipeState = {
+    startX: 0,
+    startY: 0,
+    totalDistance: 0,
+    lastSwipeEndTime: 0,
+    isSwipeActive: false,
+    // 配置选项
+    distanceThreshold: 5, // 滑动距离阈值（像素）
+    timeThreshold: 300    // 滑动后点击阻止时间（毫秒）
+  };
+
   // polyfills
   if (!document.createTouch) {
     document.createTouch = function (
@@ -130,10 +142,31 @@
 
       if (ev.type === 'mousedown') {
         initiated = true;
+        // 记录滑动开始位置
+        swipeState.startX = ev.clientX;
+        swipeState.startY = ev.clientY;
+        swipeState.totalDistance = 0;
+        swipeState.isSwipeActive = false;
+      }
+
+      if (ev.type === 'mousemove' && initiated) {
+        // 计算累计移动距离
+        var deltaX = ev.clientX - swipeState.startX;
+        var deltaY = ev.clientY - swipeState.startY;
+        swipeState.totalDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+        // 如果移动距离超过阈值，标记为滑动
+        if (swipeState.totalDistance > swipeState.distanceThreshold) {
+          swipeState.isSwipeActive = true;
+        }
       }
 
       if (ev.type === 'mouseup') {
         initiated = false;
+        // 如果发生了滑动，记录结束时间
+        if (swipeState.isSwipeActive) {
+          swipeState.lastSwipeEndTime = Date.now();
+        }
       }
 
       if (ev.type === 'mousemove' && !initiated) {
@@ -208,12 +241,30 @@
   }
 
   /**
+   * 拦截滑动后的点击事件
+   */
+  function interceptClickAfterSwipe(ev) {
+    var timeSinceSwipe = Date.now() - swipeState.lastSwipeEndTime;
+    var hasRecentSwipe = timeSinceSwipe < swipeState.timeThreshold && swipeState.lastSwipeEndTime > 0;
+
+    if (hasRecentSwipe) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      ev.stopImmediatePropagation();
+      return false;
+    }
+  }
+
+  /**
    * TouchEmulator initializer
    */
   function TouchEmulator() {
     window.addEventListener('mousedown', onMouse('touchstart'), true);
     window.addEventListener('mousemove', onMouse('touchmove'), true);
     window.addEventListener('mouseup', onMouse('touchend'), true);
+
+    // 添加点击事件拦截器，优先级最高
+    window.addEventListener('click', interceptClickAfterSwipe, true);
   }
 
   // start distance when entering the multitouch mode
