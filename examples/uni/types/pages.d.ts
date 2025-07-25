@@ -40,6 +40,12 @@ interface NavigateToOptions {
        "/pages-basic/overlay/lock-scroll" |
        "/pages-basic/overlay/placement" |
        "/pages-basic/overlay/z-index" |
+       "/pages-basic/roller/base" |
+       "/pages-basic/roller/custom" |
+       "/pages-basic/roller/disabled" |
+       "/pages-basic/roller/item-height" |
+       "/pages-basic/roller/multiple" |
+       "/pages-basic/roller/visible-count" |
        "/pages-form/checkbox/base" |
        "/pages-form/checkbox/color" |
        "/pages-form/checkbox/controlled" |
