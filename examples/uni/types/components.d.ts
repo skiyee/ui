@@ -19,6 +19,8 @@ declare module 'vue' {
     SkOverlay: typeof import('@skiyee/uni-ui/components/sk-overlay.vue')['default']
     SkRadio: typeof import('@skiyee/uni-ui/components/sk-radio.vue')['default']
     SkRadioGroup: typeof import('@skiyee/uni-ui/components/sk-radio-group.vue')['default']
+    SkRoller: typeof import('@skiyee/uni-ui/components/sk-roller.vue')['default']
+    SkRollerGroup: typeof import('@skiyee/uni-ui/components/sk-roller-group.vue')['default']
     SkSlider: typeof import('@skiyee/uni-ui/components/sk-slider.vue')['default']
     SkSpinner: typeof import('@skiyee/uni-ui/components/sk-spinner.vue')['default']
     SkSwitch: typeof import('@skiyee/uni-ui/components/sk-switch.vue')['default']
