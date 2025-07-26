@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         **请先确认：**
-        - [ ] 已查看[常见问题文档](https://skiyee-ui.netlify.app/docs/getting-started/introduction)
+        - [ ] 已查看[常见问题文档](https://skiyee-ui.netlify.app/docs/guide/introduction)
         - [ ] 在最新代码分支可复现
   - type: textarea
     id: environment
