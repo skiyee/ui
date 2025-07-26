@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
-// 餐厅选择器
 const selectedCuisine = ref('chinese')
 const selectedPrice = ref('medium')
 const selectedDistance = ref('1km')
@@ -29,31 +28,11 @@ const distanceOptions = [
 </script>
 
 <template>
-  <div class="p-4 w-full">
-    <h3 class="text-base font-medium mb-3 mt-8">
-      餐厅选择器
-    </h3>
-
-    <SkRollerGroup :item-height="44" :visible-item-count="5">
-      <SkRoller
-        v-model="selectedCuisine"
-        :options="cuisineOptions"
-        class="flex-1"
-      />
-      <SkRoller
-        v-model="selectedPrice"
-        :options="priceOptions"
-        class="flex-1"
-      />
-      <SkRoller
-        v-model="selectedDistance"
-        :options="distanceOptions"
-        class="flex-1"
-      />
+  <div class="p-4 w-full box-border">
+    <SkRollerGroup>
+      <SkRoller v-model="selectedCuisine" :options="cuisineOptions" />
+      <SkRoller v-model="selectedPrice" :options="priceOptions" />
+      <SkRoller v-model="selectedDistance" :options="distanceOptions" />
     </SkRollerGroup>
-
-    <p class="text-sm text-primary mt-4">
-      选择: {{ selectedCuisine }} · {{ selectedPrice }} · {{ selectedDistance }}
-    </p>
   </div>
 </template>

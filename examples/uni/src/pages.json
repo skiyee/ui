@@ -164,6 +164,10 @@
           "type": "page"
         },
         {
+          "path": "roller/controlled",
+          "type": "page"
+        },
+        {
           "path": "roller/custom",
           "type": "page"
         },
@@ -177,6 +181,10 @@
         },
         {
           "path": "roller/multiple",
+          "type": "page"
+        },
+        {
+          "path": "roller/options",
           "type": "page"
         },
         {

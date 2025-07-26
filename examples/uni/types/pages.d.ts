@@ -41,10 +41,12 @@ interface NavigateToOptions {
        "/pages-basic/overlay/placement" |
        "/pages-basic/overlay/z-index" |
        "/pages-basic/roller/base" |
+       "/pages-basic/roller/controlled" |
        "/pages-basic/roller/custom" |
        "/pages-basic/roller/disabled" |
        "/pages-basic/roller/item-height" |
        "/pages-basic/roller/multiple" |
+       "/pages-basic/roller/options" |
        "/pages-basic/roller/visible-count" |
        "/pages-form/checkbox/base" |
        "/pages-form/checkbox/color" |

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const smallValue = ref('option2')
-const mediumValue = ref('option2')
-const largeValue = ref('option2')
+const itemHeight = ref('44')
+
+const value = ref('option2')
 
 const options = [
   { label: '选项 1', value: 'option1' },
@@ -15,35 +15,15 @@ const options = [
 </script>
 
 <template>
-  <div class="p-4 w-full space-y-6">
-    <div>
-      <h3 class="text-base font-medium mb-3">小尺寸 (高度: 36px)</h3>
-      <SkRollerGroup :item-height="36" :visible-item-count="5">
-        <SkRoller v-model="smallValue" :options="options" />
-      </SkRollerGroup>
-      <p class="text-sm text-primary mt-2">
-        选中值: {{ smallValue }}
-      </p>
-    </div>
+  <div class="p-4 w-full">
+    <SkRollerGroup :item-height="Number(itemHeight)">
+      <SkRoller v-model="value" :options="options" />
+    </SkRollerGroup>
 
-    <div>
-      <h3 class="text-base font-medium mb-3">中等尺寸 (高度: 44px)</h3>
-      <SkRollerGroup :item-height="44" :visible-item-count="5">
-        <SkRoller v-model="mediumValue" :options="options" />
-      </SkRollerGroup>
-      <p class="text-sm text-primary mt-2">
-        选中值: {{ mediumValue }}
-      </p>
-    </div>
-
-    <div>
-      <h3 class="text-base font-medium mb-3">大尺寸 (高度: 56px)</h3>
-      <SkRollerGroup :item-height="56" :visible-item-count="5">
-        <SkRoller v-model="largeValue" :options="options" />
-      </SkRollerGroup>
-      <p class="text-sm text-primary mt-2">
-        选中值: {{ largeValue }}
-      </p>
-    </div>
+    <SkRadioGroup v-model="itemHeight" orientation="horizontal" clax="mt-1" @change="value = 'option1'">
+      <SkRadio value="36" label="36px" />
+      <SkRadio value="44" label="44px" />
+      <SkRadio value="56" label="56px" />
+    </SkRadioGroup>
   </div>
 </template>
