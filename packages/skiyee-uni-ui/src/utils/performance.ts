@@ -4,15 +4,24 @@
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number,
-): (...args: Parameters<T>) => void {
+): (...args: Parameters<T>) => () => void {
   let timeout: ReturnType<typeof setTimeout> | null = null
 
-  return (...args: Parameters<T>) => {
+  const debounced = (...args: Parameters<T>) => {
     if (timeout) {
       clearTimeout(timeout)
     }
     timeout = setTimeout(() => func(...args), wait)
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout)
+        timeout = null
+      }
+    }
   }
+
+  return debounced
 }
 
 /**
@@ -36,36 +45,51 @@ export function throttle<T extends (...args: any[]) => any>(
 /**
  * 深度克隆
  */
-export function deepClone<T>(obj: T): T {
+export function deepClone<T>(obj: T, visited = new WeakMap()): T {
   if (obj === null || typeof obj !== 'object') {
     return obj
   }
 
+  if (visited.has(obj as object)) {
+    return visited.get(obj as object)
+  }
+
   if (obj instanceof Date) {
-    return new Date(obj.getTime()) as T
-  }
-
-  if (Array.isArray(obj)) {
-    return obj.map(item => deepClone(item)) as T
-  }
-
-  if (typeof obj === 'object') {
-    const cloned = {} as T
-    for (const key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        cloned[key] = deepClone(obj[key])
-      }
-    }
+    const cloned = new Date(obj.getTime()) as T
+    visited.set(obj as object, cloned)
     return cloned
   }
 
-  return obj
+  if (obj instanceof RegExp) {
+    const cloned = new RegExp(obj.source, obj.flags) as T
+    visited.set(obj as object, cloned)
+    return cloned
+  }
+
+  if (Array.isArray(obj)) {
+    const cloned = [] as T
+    visited.set(obj, cloned)
+    obj.forEach((item, index) => {
+      (cloned as Record<string, unknown>)[index] = deepClone(item, visited)
+    })
+    return cloned
+  }
+
+  const cloned = {} as T
+  visited.set(obj as object, cloned)
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      cloned[key] = deepClone(obj[key], visited)
+    }
+  }
+
+  return cloned
 }
 
 /**
  * 全类型比较
  */
-export function isEqual(a: any, b: any): boolean {
+export function isEqual(a: any, b: any, visited = new WeakMap()): boolean {
   if (a === b) {
     return true
   }
@@ -82,6 +106,19 @@ export function isEqual(a: any, b: any): boolean {
     return a === b
   }
 
+  if (visited.has(a)) {
+    return visited.get(a) === b
+  }
+  visited.set(a, b)
+
+  if (a instanceof Date && b instanceof Date) {
+    return a.getTime() === b.getTime()
+  }
+
+  if (a instanceof RegExp && b instanceof RegExp) {
+    return a.toString() === b.toString()
+  }
+
   if (Array.isArray(a) !== Array.isArray(b)) {
     return false
   }
@@ -90,7 +127,7 @@ export function isEqual(a: any, b: any): boolean {
     if (a.length !== b.length) {
       return false
     }
-    return a.every((item, index) => isEqual(item, b[index]))
+    return a.every((item, index) => isEqual(item, b[index], visited))
   }
 
   const keysA = Object.keys(a)
@@ -100,5 +137,5 @@ export function isEqual(a: any, b: any): boolean {
     return false
   }
 
-  return keysA.every(key => isEqual(a[key], b[key]))
+  return keysA.every(key => Object.prototype.hasOwnProperty.call(b, key) && isEqual(a[key], b[key], visited))
 }
