@@ -16,9 +16,23 @@
 
 import type { SkRollerUcvProps } from '../styles'
 
+/**
+ * 滚动选择器组件
+ * 基础的选择器选项，支持标签、值和禁用状态
+ */
 export interface SkRollerOption {
-  label: string;
-  value: any;
+  /**
+   * 显示标签
+   */
+  label: string | number;
+  /**
+   * 选项值
+   */
+  value: string | number;
+  /**
+   * 是否禁用
+   * @default false
+   */
   disabled?: boolean;
 }
 
@@ -39,7 +53,7 @@ export interface SkRollerProps {
 }
 
 export interface SkRollerEmits {
-  (name: 'change', value: unknown, option: SkRollerOption): void;
+  (name: 'change', value: SkRollerOption['value'], option: SkRollerOption): void;
 }
 
 export interface SkRollerSlots {
@@ -68,7 +82,7 @@ const props = withDefaults(defineProps<SkRollerProps>(), {
   disabled: false,
 })
 
-const modelValue = defineModel<any>()
+const modelValue = defineModel<SkRollerOption['value']>()
 
 const emits = defineEmits<SkRollerEmits>()
 
@@ -384,9 +398,7 @@ onMounted(() => {
         @click="handleOptionClick(option, index)"
       >
         <slot name="option" :option="option" :selected="index === selectedIndex">
-          <span :class="classes.optionText()">
-            {{ option.label }}
-          </span>
+          <span :class="classes.optionText()">{{ option.label }}</span>
         </slot>
       </div>
     </div>
