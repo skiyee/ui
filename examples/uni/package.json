@@ -72,7 +72,7 @@
     "@dcloudio/uni-cli-shared": "3.0.0-4060420250429001",
     "@dcloudio/uni-stacktracey": "3.0.0-4060420250429001",
     "@dcloudio/vite-plugin-uni": "3.0.0-4060420250429001",
-    "@skiyee/ui-preset": "workspace:*",
+    "@skiyee/ui-preset": "*",
     "@skiyee/ui-resolver": "workspace:*",
     "@uni-helper/uni-app-types": "^1.0.0-alpha.6",
     "@uni-helper/unocss-preset-uni": "^0.2.11",
