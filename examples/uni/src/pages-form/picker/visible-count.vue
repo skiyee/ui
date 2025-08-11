@@ -19,7 +19,7 @@ const options = [
 
 <template>
   <div class="w-full p-4 space-y-6">
-    <SkPicker v-model="value" :columns="options" :visible-item-count="visibleItemCount" />
+    <SkPicker v-model="value" :columns="options" :visible-item-count="Number(visibleItemCount)" />
 
     <SkRadioGroup v-model="visibleItemCount" orientation="horizontal" clax="mt-1" @change="value = 'option1'">
       <SkRadio value="3" label="3项" />

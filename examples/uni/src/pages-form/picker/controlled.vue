@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const singleValue = ref(['banana'])
+const singleValue = ref('orange')
 const singleColumnData = [
   { label: '苹果', value: 'apple' },
   { label: '香蕉', value: 'banana' },
