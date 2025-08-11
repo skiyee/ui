@@ -107,6 +107,15 @@ interface NavigateToOptions {
        "/pages-form/number-input/step-strictly" |
        "/pages-form/number-input/step" |
        "/pages-form/number-input/usage" |
+       "/pages-form/picker/base" |
+       "/pages-form/picker/cascade" |
+       "/pages-form/picker/controlled" |
+       "/pages-form/picker/custom-option" |
+       "/pages-form/picker/disabled" |
+       "/pages-form/picker/item-height" |
+       "/pages-form/picker/multi-column" |
+       "/pages-form/picker/transform" |
+       "/pages-form/picker/visible-count" |
        "/pages-form/radio/base" |
        "/pages-form/radio/color" |
        "/pages-form/radio/disabled" |
