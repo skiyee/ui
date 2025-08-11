@@ -73,7 +73,7 @@ export function usePicker<T = SkPickerColumn | SkPickerColumns>({
   transform,
   onChange,
 }: UsePickerOptions<T>) {
-  const pickerColumns = normalizePickerColumns(columns, transform)
+  let pickerColumns = normalizePickerColumns(columns, transform)
 
   // 响应式状态 - 每列的状态
   const columnStates = shallowReactive(
@@ -258,6 +258,15 @@ export function usePicker<T = SkPickerColumn | SkPickerColumns>({
 
   // 重置选择器
   const reset = () => {
+    if (isCascadeMode()) {
+      if (columnStates[0]) {
+        const first = columnStates[0].options.find(opt => !opt.disabled)
+        columnStates[0].value = first ? first.value : ''
+        updateCascadeColumns(0)
+      }
+      return
+    }
+
     columnStates.forEach((state) => {
       const firstAvailable = state.options.find(opt => !opt.disabled)
       state.value = firstAvailable ? firstAvailable.value : ''
@@ -267,6 +276,28 @@ export function usePicker<T = SkPickerColumn | SkPickerColumns>({
   // 设置新的数据源
   const setColumns = (newColumns: T) => {
     const newPickerColumns = normalizePickerColumns(newColumns, transform)
+    pickerColumns = newPickerColumns
+
+    if (isCascadeMode()) {
+      while (columnStates.length > 1) {
+        columnStates.pop()
+      }
+
+      if (!columnStates[0]) {
+        columnStates.push(getPickerColumnState())
+      }
+
+      columnStates[0].options = newPickerColumns[0]
+
+      const current = columnStates[0].options.find(opt => opt.value === columnStates[0].value && !opt.disabled)
+      if (!current) {
+        const first = columnStates[0].options.find(opt => !opt.disabled)
+        columnStates[0].value = first ? first.value : ''
+      }
+
+      updateCascadeColumns(0)
+      return
+    }
 
     // 更新列状态数组长度
     while (columnStates.length > newPickerColumns.length) {
