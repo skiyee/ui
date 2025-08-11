@@ -17,6 +17,7 @@ declare module 'vue' {
     SkInput: typeof import('@skiyee/uni-ui/components/sk-input.vue')['default']
     SkNumberInput: typeof import('@skiyee/uni-ui/components/sk-number-input.vue')['default']
     SkOverlay: typeof import('@skiyee/uni-ui/components/sk-overlay.vue')['default']
+    SkPicker: typeof import('@skiyee/uni-ui/components/sk-picker.vue')['default']
     SkRadio: typeof import('@skiyee/uni-ui/components/sk-radio.vue')['default']
     SkRadioGroup: typeof import('@skiyee/uni-ui/components/sk-radio-group.vue')['default']
     SkRoller: typeof import('@skiyee/uni-ui/components/sk-roller.vue')['default']
