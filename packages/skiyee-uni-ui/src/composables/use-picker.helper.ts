@@ -53,15 +53,18 @@ function normalizePickerColumnOption(
 
   // 如果是对象
   if (typeof option === 'object' && option !== null) {
-    let normalized: SkPickerOption = {
-      label: option[fieldNames.label] || String(option[fieldNames.value] || ''),
+    const normalized: SkPickerOption = {
+      label: option[fieldNames.label] ?? String(option[fieldNames.value] ?? ''),
       value: option[fieldNames.value],
       disabled: Boolean(option[fieldNames.disabled]),
     }
 
     // 保存原始数据
-    if (Object.keys(option).length > 3) {
-      normalized = Object.assign({}, option)
+    const known = new Set([fieldNames.label, fieldNames.value, fieldNames.disabled])
+    for (const k in option) {
+      if (!known.has(k)) {
+        normalized[k as keyof SkPickerOption] = option[k]
+      }
     }
 
     return normalized
