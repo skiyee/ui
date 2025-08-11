@@ -9,8 +9,8 @@
   },
   "scripts": {
     "prepare": "simple-git-hooks",
+    "dev": "pnpm -r --parallel dev",
     "build": "pnpm --filter @skiyee/* build",
-    "demo:dev": "pnpm --filter uni-cli-example dev",
     "release": "bumpp package.json examples/uni/package.json packages/skiyee-uni-ui/package.json",
     "publish": "pnpm --filter @skiyee/uni-ui publish",
     "preset:release": "bumpp --filter @skiyee/ui-preset release",
@@ -38,6 +38,12 @@
       "esbuild",
       "simple-git-hooks",
       "unrs-resolver",
+      "vue-demi",
+      "@parcel/watcher",
+      "@tailwindcss/oxide",
+      "better-sqlite3",
+      "esbuild",
+      "sharp",
       "vue-demi"
     ]
   },

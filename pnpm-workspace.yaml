@@ -1,14 +1,13 @@
 packages:
   - packages/*
-  - presets/*
   - examples/*
   - docs
 
 catalog:
-  '@unocss/rule-utils': 66.0.0
   '@unocss/core': 66.0.0
   '@unocss/preset-icons': 66.0.0
+  '@unocss/rule-utils': 66.0.0
   unocss: 66.0.0
+  vite: 5.2.8
   vue: 3.4.21
   vue-tsc: 2.2.10
-  vite: 5.2.8

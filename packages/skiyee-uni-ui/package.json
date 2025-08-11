@@ -74,9 +74,7 @@
     "@dcloudio/types": "^3.4.15",
     "@skiyee/ui-preset": "workspace:*",
     "@uni-helper/uni-app-types": "1.0.0-alpha.6",
-    "mkdist": "^2.3.0",
     "vue": "catalog:",
-    "vue-sfc-transformer": "^0.1.16",
     "zod": "^3.25.64"
   },
   "config": {
