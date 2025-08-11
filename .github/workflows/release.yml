@@ -21,7 +21,7 @@ jobs:
         id: get_tags
         run: |
           git fetch --prune --unshallow
-          tags=($(git tag -l --sort=-version:refname))
+          tags=($(git tag -l '@skiyee/*@v*' --sort=-version:refname))
           current_tag=${tags[0]}
           previous_tag=${tags[1]}
           echo "previous_tag=$previous_tag" >> $GITHUB_OUTPUT
