@@ -19,7 +19,6 @@ trace-*.json
 .fleet
 .git
 .idea
-.gitmodules
 
 # Local env files
 .env
@@ -27,6 +26,4 @@ trace-*.json
 !.env.example
 
 # Bundle
-packages/skiyee-uni-ui/**/styles
-packages/skiyee-uni-ui/**/validator
 tsdown.config.ts

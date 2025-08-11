@@ -1,0 +1,6 @@
+[submodule "packages/skiyee-ui-preset"]
+	path = packages/skiyee-ui-preset
+	url = git@github.com:skiyee/ui-preset.git
+[submodule "docs"]
+	path = docs
+	url = git@github.com:skiyee/ui-docs.git
