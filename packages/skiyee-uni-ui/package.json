@@ -1,7 +1,7 @@
 {
   "name": "@skiyee/uni-ui",
   "type": "module",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "一个由原子化CSS驱动、符合直觉设计、高度定制化、面向AI时代的移动端 UI 库，助力开发者打造独特且差异化的移动端应用程序",
   "author": {
     "name": "skiyee",
