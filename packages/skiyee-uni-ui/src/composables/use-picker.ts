@@ -59,7 +59,7 @@ export interface UsePickerOptions<T = SkPickerColumn | SkPickerColumns> {
   transform?: SkPickerOptionsTransform<T>;
   onChange?: (event: {
     columnIndex: number;
-    value: number | string;
+    value: SkPickerOption['value'];
     option: SkPickerOption;
   }) => void;
 }
@@ -76,7 +76,9 @@ export function usePicker<T = SkPickerColumn | SkPickerColumns>({
   const pickerColumns = normalizePickerColumns(columns, transform)
 
   // 响应式状态 - 每列的状态
-  const columnStates = Array.from({ length: pickerColumns.length }).map(() => getPickerColumnState())
+  const columnStates = shallowReactive(
+    Array.from({ length: pickerColumns.length }).map(() => getPickerColumnState()),
+  )
 
   // 检测是否为级联模式
   const isCascadeMode = () => {
@@ -234,7 +236,7 @@ export function usePicker<T = SkPickerColumn | SkPickerColumns>({
   // 获取所有列的选中选项
   const getSelectedOptions = (): SkPickerOption[] => {
     return columnStates.map((state) => {
-      return state.options.find(opt => opt.value === state.value) || state.options[0]
+      return state.options.find(opt => opt.value === state.value) || state.options.find(opt => !opt.disabled)!
     }).filter(Boolean)
   }
 
