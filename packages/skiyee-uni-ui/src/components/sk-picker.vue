@@ -82,6 +82,7 @@ export interface SkPickerSlots {
 import { nextTick } from 'vue'
 
 import { usePicker } from '../composables/use-picker'
+import { isNil } from '../utils/is'
 import SkRollerGroup from './sk-roller-group.vue'
 import SkRoller from './sk-roller.vue'
 
@@ -160,7 +161,7 @@ defineExpose({
       :options="options"
       :model-value="value"
       :disabled="disabled"
-      @update:model-value="(value) => value && handleSelect(columnIndex, value)"
+      @update:model-value="(value) => !isNil(value) && handleSelect(columnIndex, value)"
     >
       <template #option="{ option, selected }">
         <slot name="option" :option="option" :selected="selected" :column-index="columnIndex">
