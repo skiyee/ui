@@ -13,9 +13,7 @@
     "build": "pnpm --filter @skiyee/* build",
     "build:docs": "pnpm --filter @skiyee/uni-ui build && pnpm --filter @skiyee/uni-example build && pnpm --filter @skiyee/docs build",
     "release": "bumpp package.json examples/uni/package.json packages/skiyee-uni-ui/package.json",
-    "publish": "pnpm --filter @skiyee/uni-ui publish",
-    "preset:release": "bumpp --filter @skiyee/ui-preset release",
-    "preset:publish": "pnpm --filter @skiyee/ui-preset publish"
+    "publish:uni-ui": "pnpm --filter @skiyee/uni-ui publishOnly"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

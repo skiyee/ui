@@ -45,7 +45,7 @@
   "scripts": {
     "build": "tsdown",
     "prepublishOnly": "pnpm build",
-    "publish": "pnpm publish --access public --no-git-checks"
+    "publishOnly": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
     "@skiyee/ui-preset": ">=workspace:*",
