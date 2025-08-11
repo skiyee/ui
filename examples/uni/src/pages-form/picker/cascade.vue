@@ -1,42 +1,42 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const value = ref(['shanghai'])
+const value = ref(['fruit', 'melons', 'watermelon'])
 
 // 创建级联数据
 const cascadeData = [
   {
-    label: '北京市',
-    value: 'beijing',
+    label: '水果',
+    value: 'fruit',
     sub: [
       {
-        label: '朝阳区',
-        value: 'chaoyang',
+        label: '瓜果类',
+        value: 'melons',
         sub: [
-          { label: '建国门街道', value: 'jianguomen' },
-          { label: '东华门街道', value: 'donghuamen' },
+          { label: '西瓜', value: 'watermelon' },
+          { label: '哈密瓜', value: 'cantaloupe' },
         ],
       },
       {
-        label: '海淀区',
-        value: 'haidian',
+        label: '柑橘类',
+        value: 'citrus',
         sub: [
-          { label: '中关村街道', value: 'zhongguancun' },
-          { label: '学院路街道', value: 'xueyuanlu' },
+          { label: '橙子', value: 'orange' },
+          { label: '柠檬', value: 'lemon' },
         ],
       },
     ],
   },
   {
-    label: '上海市',
-    value: 'shanghai',
+    label: '食材',
+    value: 'food',
     sub: [
       {
-        label: '黄浦区',
-        value: 'huangpu',
+        label: '海鲜',
+        value: 'seafood',
         sub: [
-          { label: '南京东路街道', value: 'nanjingdonglu' },
-          { label: '外滩街道', value: 'waitan' },
+          { label: '鱼', value: 'fish' },
+          { label: '蟹', value: 'crab' },
         ],
       },
     ],
@@ -45,20 +45,11 @@ const cascadeData = [
 </script>
 
 <template>
-  <div class="w-full">
-    <SkPicker
-      v-model="value"
-      :columns="cascadeData"
-      :item-height="44"
-      :visible-item-count="5"
-    />
-    <view class="result-display">
-      <text class="result-label">
-        选中值：
-      </text>
-      <text class="result-value">
-        {{ JSON.stringify(value) }}
-      </text>
-    </view>
+  <div class="w-full p-4">
+    <SkPicker v-model="value" :columns="cascadeData" />
+
+    <text class="text-body-medium font-medium">
+      选中值：{{ JSON.stringify(value) }}
+    </text>
   </div>
 </template>

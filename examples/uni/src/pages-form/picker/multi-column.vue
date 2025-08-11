@@ -16,30 +16,16 @@ const multiColumnData = [
     { label: '黄色', value: 'yellow' },
     { label: '绿色', value: 'green' },
     { label: '蓝色', value: 'blue' },
-  ]
+  ],
 ]
-
-const handleChange = (event: any) => {
-  console.log('多列选择器变化:', event)
-}
 </script>
 
 <template>
-  <div class="w-full">
-    <SkPicker
-      v-model="multiValue"
-      :columns="multiColumnData"
-      :item-height="44"
-      :visible-item-count="5"
-      @change="handleChange"
-    />
-    <view class="result-display mt-4 p-4 bg-gray-50 rounded">
-      <text class="result-label font-medium">
-        选中值：
-      </text>
-      <text class="result-value">
-        {{ JSON.stringify(multiValue) }}
-      </text>
-    </view>
+  <div class="w-full p-4">
+    <SkPicker v-model="multiValue" :columns="multiColumnData" />
+
+    <text class="text-body-medium font-medium">
+      选中值：{{ JSON.stringify(multiValue) }}
+    </text>
   </div>
 </template>

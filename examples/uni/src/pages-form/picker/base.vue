@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const singleValue = ref(['banana', 'banana'])
+const singleValue = ref('banana')
 const singleColumnData = [
   [
     { label: '苹果', value: 'apple' },
@@ -18,37 +18,14 @@ const singleColumnData = [
     { label: '草莓', value: 'strawberry' },
   ],
 ]
-
-const handleSingleChange = (event: any) => {
-  console.log('单列选择器变化:', event)
-}
-
-const handleSingleComplete = (event: any) => {
-  console.log('单列选择器完成:', event)
-  uni.showToast({
-    title: `选择了: ${event.options[0]?.label}`,
-    icon: 'none',
-  })
-}
 </script>
 
 <template>
-  <div class="w-full">
-    <SkPicker
-      v-model="singleValue"
-      :columns="singleColumnData"
-      :item-height="44"
-      :visible-item-count="5"
-      @change="handleSingleChange"
-      @complete="handleSingleComplete"
-    />
-    <view class="result-display">
-      <text class="result-label">
-        选中值：
-      </text>
-      <text class="result-value">
-        {{ JSON.stringify(singleValue) }}
-      </text>
-    </view>
+  <div class="w-full p-4">
+    <SkPicker v-model="singleValue" :columns="singleColumnData" />
+
+    <text class="text-body-medium font-medium">
+      选中值：{{ JSON.stringify(singleValue) }}
+    </text>
   </div>
 </template>

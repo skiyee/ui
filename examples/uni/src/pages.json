@@ -433,6 +433,42 @@
           "type": "page"
         },
         {
+          "path": "picker/base",
+          "type": "page"
+        },
+        {
+          "path": "picker/cascade",
+          "type": "page"
+        },
+        {
+          "path": "picker/controlled",
+          "type": "page"
+        },
+        {
+          "path": "picker/custom-option",
+          "type": "page"
+        },
+        {
+          "path": "picker/disabled",
+          "type": "page"
+        },
+        {
+          "path": "picker/item-height",
+          "type": "page"
+        },
+        {
+          "path": "picker/multi-column",
+          "type": "page"
+        },
+        {
+          "path": "picker/transform",
+          "type": "page"
+        },
+        {
+          "path": "picker/visible-count",
+          "type": "page"
+        },
+        {
           "path": "radio/base",
           "type": "page"
         },
