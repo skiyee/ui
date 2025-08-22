@@ -48,7 +48,6 @@
     "publishOnly": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@skiyee/ui-preset": ">=workspace:*",
     "arktype": ">=2.0.0",
     "valibot": ">=1.0.0",
     "vue": ">=3.4.21",
@@ -72,7 +71,7 @@
   },
   "devDependencies": {
     "@dcloudio/types": "^3.4.15",
-    "@skiyee/ui-preset": "workspace:*",
+    "@skiyee/ui-preset": "*",
     "@uni-helper/uni-app-types": "1.0.0-alpha.6",
     "vue": "catalog:",
     "zod": "^3.25.64"
