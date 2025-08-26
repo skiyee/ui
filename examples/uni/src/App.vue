@@ -55,15 +55,9 @@ onUnmounted(() => {
 </script>
 
 <style>
-/* 添加平滑过渡效果 */
-:root {
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
 page {
   background-color: rgb(var(--sk-ui-color-bg-surface));
   color: rgb(var(--sk-ui-color-text-primary));
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 page .dark {
@@ -71,8 +65,8 @@ page .dark {
   color: rgb(var(--sk-ui-color-text-primary));
 }
 
-/* 为所有使用主题变量的元素添加过渡 */
-* {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
+/* .dark, [data-theme=dark]{
+  --sk-ui-color-text-description: 107 114 128 !important;
+  --sk-ui-color-neutral: 169 174 184 !important;
+} */
 </style>

@@ -157,6 +157,9 @@ interface NavigateToOptions {
        "/pages-form/textarea/show-count" |
        "/pages-form/textarea/size" |
        "/pages-form/textarea/usage" |
+       "/pages-feedback/dialog/base" |
+       "/pages-feedback/dialog/dismissable" |
+       "/pages-feedback/dialog/long-content" |
        "/pages-feedback/spinner/base" |
        "/pages-feedback/spinner/color" |
        "/pages-feedback/spinner/size" |
