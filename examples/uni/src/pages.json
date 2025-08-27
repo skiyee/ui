@@ -638,6 +638,18 @@
       "root": "pages-feedback",
       "pages": [
         {
+          "path": "dialog/base",
+          "type": "page"
+        },
+        {
+          "path": "dialog/dismissable",
+          "type": "page"
+        },
+        {
+          "path": "dialog/long-content",
+          "type": "page"
+        },
+        {
           "path": "spinner/base",
           "type": "page"
         },
