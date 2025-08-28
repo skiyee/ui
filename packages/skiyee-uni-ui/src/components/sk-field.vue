@@ -13,7 +13,7 @@
  * </sk-field>
  * ```
  *
- * @see 更多示例请参考文档: https://skiyee-ui.netlify.app/docs/components/form/form-field
+ * @see 更多示例请参考文档: https://skiyee-ui.netlify.app/docs/components/form/field
  */
 
 import type { SkFieldUcvProps } from '../styles'
