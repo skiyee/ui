@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "types": ["node", "@dcloudio/types", "@uni-helper/uni-app-types"],
-    "removeComments": true
+    "removeComments": true,
   },
   "include": [
     "src",

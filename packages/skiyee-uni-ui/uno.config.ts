@@ -1,9 +1,12 @@
 import presetSkiyeeUI from '@skiyee/ui-preset'
-import { defineConfig, presetWind3 } from 'unocss'
+import { defineConfig } from 'unocss'
+import { presetApplet } from 'unocss-applet'
 
 export default defineConfig({
   presets: [
-    presetWind3(),
-    presetSkiyeeUI(),
+    presetApplet() as any,
+    presetSkiyeeUI({
+      platform: 'mp',
+    }),
   ],
 })

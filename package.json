@@ -11,7 +11,6 @@
     "prepare": "simple-git-hooks",
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm --filter @skiyee/* build",
-    "build:docs": "pnpm --filter @skiyee/uni-ui build && pnpm --filter @skiyee/uni-example build && pnpm --filter @skiyee/docs build",
     "release": "bumpp package.json examples/uni/package.json packages/skiyee-uni-ui/package.json",
     "publish:uni-ui": "pnpm --filter @skiyee/uni-ui publishOnly"
   },
@@ -26,8 +25,10 @@
     "cz-git": "^1.11.2",
     "eslint": "^9.26.0",
     "simple-git-hooks": "^2.13.0",
-    "tsdown": "^0.12.9",
+    "tsdown": "^0.14.2",
     "typescript": "^5.8.3",
+    "unocss": "catalog:",
+    "unocss-applet": "0.10.0",
     "vue": "catalog:"
   },
   "pnpm": {
@@ -45,6 +46,10 @@
       "sharp",
       "vue-demi"
     ]
+  },
+  "resolutions": {
+    "unocss": "catalog:",
+    "vue": "catalog:"
   },
   "simple-git-hooks": {
     "commit-msg": "npx commitlint --edit ${1}"

@@ -65,16 +65,13 @@
     }
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.57",
     "@skiyee/ucv": "^0.1.2",
     "@standard-schema/spec": "^1.0.0"
   },
   "devDependencies": {
     "@dcloudio/types": "^3.4.15",
-    "@skiyee/ui-preset": "*",
-    "@uni-helper/uni-app-types": "1.0.0-alpha.6",
-    "vue": "catalog:",
-    "zod": "^3.25.64"
+    "@skiyee/ui-preset": "^0.0.8",
+    "@uni-helper/uni-app-types": "1.0.0-alpha.6"
   },
   "config": {
     "commitizen": {
