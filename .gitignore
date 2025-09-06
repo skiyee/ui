@@ -2,10 +2,12 @@
 dist
 demo
 scripts
+.output
+.nuxt
+.data
 
 # Node dependencies
 node_modules
-uni_modules
 
 # Logs
 logs
@@ -27,3 +29,5 @@ trace-*.json
 
 # Bundle
 tsdown.config.ts
+h5
+uni-hbx

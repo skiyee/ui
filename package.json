@@ -3,6 +3,7 @@
   "type": "module",
   "version": "1.1.0",
   "private": true,
+  "packageManager": "pnpm@10.4.1",
   "author": {
     "name": "skiyee(sKy)",
     "email": "319619193@qq.com"
@@ -42,14 +43,12 @@
       "@parcel/watcher",
       "@tailwindcss/oxide",
       "better-sqlite3",
-      "esbuild",
-      "sharp",
-      "vue-demi"
+      "sharp"
     ]
   },
   "resolutions": {
-    "unocss": "catalog:",
-    "vue": "catalog:"
+    "giget": "1.2.5",
+    "unocss": "catalog:"
   },
   "simple-git-hooks": {
     "commit-msg": "npx commitlint --edit ${1}"
