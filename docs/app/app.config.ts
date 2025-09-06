@@ -1,7 +1,15 @@
 export default defineAppConfig({
-  // 项目特定的配置可以在这里覆盖 Layer 的默认配置
   seo: {
-    title: 'skiyee/ui - 文档',
-    description: 'skiyee/ui 移动端 UI 库的官方文档',
+    title: 'skiyee/ui',
+    description: '一个由原子化CSS驱动、符合直觉设计、高度定制化、面向AI时代的移动端 UI 库',
+    keywords: [
+      'Vue', 'Vue3', 'Uniapp', 'UnoCSS', 'skiyee', '原子化CSS',
+      'Vue组件', 'Unocss组件库', '组件库', 'UI库', '移动端组件库',
+    ],
+    author: 'sKy(skiyee)',
+    image: '/og-image.png',
+    url: 'https://skiyee-ui.netlify.app',
+    locale: 'zh-CN',
+    type: 'website',
   },
 })
