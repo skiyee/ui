@@ -29,5 +29,4 @@ trace-*.json
 
 # Bundle
 tsdown.config.ts
-h5
 uni-hbx
