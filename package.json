@@ -11,7 +11,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "pnpm -r --parallel dev",
-    "build": "pnpm --filter @skiyee/* build",
+    "build:docs": "pnpm --filter @skiyee/docs build",
     "release": "bumpp package.json examples/uni/package.json packages/skiyee-uni-ui/package.json",
     "publish:uni-ui": "pnpm --filter @skiyee/uni-ui publishOnly"
   },
