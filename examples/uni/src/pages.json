@@ -710,6 +710,27 @@
           "type": "page"
         }
       ]
+    },
+    {
+      "root": "pages-design",
+      "pages": [
+        {
+          "path": "colors/background",
+          "type": "page"
+        },
+        {
+          "path": "colors/border",
+          "type": "page"
+        },
+        {
+          "path": "colors/functional",
+          "type": "page"
+        },
+        {
+          "path": "colors/text",
+          "type": "page"
+        }
+      ]
     }
   ]
 }

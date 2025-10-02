@@ -1,1 +1,0 @@
-import{e as s,g as i,o as e,q as t,n as a}from"./index-DRb4nDkQ.js";const n=s({inheritAttrs:!1,options:{virtualHost:!0},__name:"sk-icon",props:{name:{},size:{},clax:{}},emits:["click"],setup:s=>(s,n)=>(e(),i("span",{class:a(["shrink-0",[s.name,s.clax]]),style:t(s.size&&`width:${s.size};height:${s.size}`),onClick:n[0]||(n[0]=i=>s.$emit("click",i))},null,6))});export{n as _};

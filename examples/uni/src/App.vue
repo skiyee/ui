@@ -22,7 +22,7 @@ function applyTheme(theme: 'light' | 'dark') {
 
 onLaunch(() => {
   const appBaseInfo = uni.getAppBaseInfo()
-  applyTheme(appBaseInfo.theme === 'dark' ? 'dark' : 'light')
+  // applyTheme(appBaseInfo.theme === 'dark' ? 'dark' : 'light')
 })
 
 /*

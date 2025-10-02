@@ -21,10 +21,13 @@ export default async () => {
       UniPages({
         dts: 'types/pages.d.ts',
         subPackages: [
+          // 组件
           'src/pages-basic',
           'src/pages-form',
           'src/pages-feedback',
           'src/pages-navigation',
+          // 定制
+          'src/pages-design',
         ],
       }),
       Components({

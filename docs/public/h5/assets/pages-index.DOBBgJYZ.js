@@ -1,1 +1,0 @@
-import{_ as s,c as t,w as a,r as e,o,a as r}from"./index-DRb4nDkQ.js";const l=s({},[["render",function(s,l){const n=e("global-ku-root");return o(),t(n,null,{default:a(()=>[r("div",{class:"p-4"},[r("div",{class:"text-center"},[r("h1",{class:"text-2xl font-bold text-primary mb-2"}," @skiyee/uni-ui 组件库 ")])])]),_:1})}]]);export{l as default};

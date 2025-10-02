@@ -174,7 +174,11 @@ interface NavigateToOptions {
        "/pages-feedback/toast/message" |
        "/pages-feedback/toast/placement" |
        "/pages-feedback/toast/type" |
-       "/pages-feedback/toast/z-index";
+       "/pages-feedback/toast/z-index" |
+       "/pages-design/colors/background" |
+       "/pages-design/colors/border" |
+       "/pages-design/colors/functional" |
+       "/pages-design/colors/text";
 }
 interface RedirectToOptions extends NavigateToOptions {}
 

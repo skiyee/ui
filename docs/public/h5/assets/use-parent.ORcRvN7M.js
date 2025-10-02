@@ -1,1 +1,0 @@
-import{v as n,j as e,x as r,y as a,f as s}from"./index-DRb4nDkQ.js";function t(t){const i=n(t,null);if(!i)return{parent:i,index:e(-1)};const d=r(),{add:o,remove:x,children:f}=i;o(d),a(()=>x(d));return{parent:i,index:s(()=>f.indexOf(d))}}export{t as u};

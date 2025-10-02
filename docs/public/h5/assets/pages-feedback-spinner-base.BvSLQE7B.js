@@ -1,0 +1,1 @@
+import{_ as s}from"./sk-spinner.g15YERIx.js";import{_ as a,c as o,w as r,r as n,o as t,a as e,b as i}from"./index-CA6UagU_.js";import"./index.Budg9xHA.js";const l=a({},[["render",function(a,l){const d=s,p=n("global-ku-root");return t(),o(p,null,{default:r(()=>[e("div",{class:"p-4"},[i(d)])]),_:1})}]]);export{l as default};

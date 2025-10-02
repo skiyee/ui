@@ -43,28 +43,33 @@ onMounted(() => {
 const people = [
   {
     id: 1,
-    name: "skiyee",
-    designation: "切图仔、CRUD糕手、UI融合怪",
-    image: "https://www.github.com/skiyee.png",
-  }
+    name: 'skiyee',
+    designation: '切图仔、CRUD糕手、UI融合怪',
+    image: '/avatar/skiyee.png',
+  },
 ]
 </script>
 
 <template>
   <section class="relative h-dvh -mt-14 w-full flex items-center">
     <div class="bg absolute inset-0 -z-10 transform-gpu blur-3xl overflow-hidden" aria-hidden="true">
-      <div class="aspect-[1.7] h-full w-full bg-gradient-to-r from-nc-primary to-white/10 lg:opacity-30 xs:opacity-50"
+      <div
+        class="aspect-[1.7] h-full w-full bg-gradient-to-r from-nc-primary to-white/10 lg:opacity-30 xs:opacity-50"
         :style="{
           'clip-path': `polygon(${poly})`,
-        }" />
+        }"
+      />
     </div>
 
     <div class="flex flex-col mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <NuxtLink v-if="announcement" :to="announcement.to" :target="announcement.target"
-        class="bg-nc-background/80 hidden lg:inline-flex items-center rounded-lg mx-auto px-3 py-2 text-sm font-medium">
+      <NuxtLink
+        v-if="announcement" :to="announcement.to" :target="announcement.target"
+        class="bg-nc-background/80 hidden lg:inline-flex items-center rounded-lg mx-auto px-3 py-2 text-sm font-medium"
+      >
         <template v-if="announcement.icon">
           <span
-            v-if="/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g.test(announcement.icon)">
+            v-if="/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g.test(announcement.icon)"
+          >
             {{ announcement.icon }}
           </span>
           <Icon v-else :name="announcement.icon" :size="16" />
