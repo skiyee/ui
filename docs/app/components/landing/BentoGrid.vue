@@ -94,7 +94,7 @@ const animatedStats = ref(stats.value.map(() => ({ current: 0, target: 0 })))
 // 数字动画
 const animateNumber = (target: string, index: number) => {
   const numericValue = Number.parseInt(target.replace(/\D/g, '')) || 0
-  animatedStats.value[index].target = numericValue
+  animatedStats.value[index] && (animatedStats.value[index].target = numericValue)
 
   const duration = 2000
   const steps = 60
@@ -107,7 +107,7 @@ const animateNumber = (target: string, index: number) => {
       current = numericValue
       clearInterval(timer)
     }
-    animatedStats.value[index].current = Math.floor(current)
+    animatedStats.value[index] && (animatedStats.value[index].current = Math.floor(current))
   }, duration / steps)
 }
 
@@ -159,31 +159,11 @@ onMounted(() => {
         <!-- 背景渐变 -->
         <div :class="`absolute inset-0 bg-gradient-to-br ${stat.bgClass} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`" />
 
-        <!-- 装饰性线条 -->
-        <div class="absolute top-0 right-0 w-20 h-20 opacity-10">
-          <svg viewBox="0 0 100 100" class="w-full h-full">
-            <defs>
-              <linearGradient :id="`grad-${index}`" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop v-if="index === 0" offset="0%" stop-color="#3b82f6" stop-opacity="0.3" />
-                <stop v-else-if="index === 1" offset="0%" stop-color="#a855f7" stop-opacity="0.3" />
-                <stop v-else-if="index === 2" offset="0%" stop-color="#22c55e" stop-opacity="0.3" />
-                <stop v-else offset="0%" stop-color="#f97316" stop-opacity="0.3" />
-
-                <stop v-if="index === 0" offset="100%" stop-color="#2563eb" stop-opacity="0.1" />
-                <stop v-else-if="index === 1" offset="100%" stop-color="#9333ea" stop-opacity="0.1" />
-                <stop v-else-if="index === 2" offset="100%" stop-color="#16a34a" stop-opacity="0.1" />
-                <stop v-else offset="100%" stop-color="#ea580c" stop-opacity="0.1" />
-              </linearGradient>
-            </defs>
-            <path d="M20,20 Q50,10 80,20 Q90,50 80,80 Q50,90 20,80 Q10,50 20,20" :fill="`url(#grad-${index})`" />
-          </svg>
-        </div>
-
         <div class="relative z-10">
           <!-- 超大数字显示 -->
           <div class="flex items-baseline gap-1 mb-3">
             <span class="text-5xl md:text-6xl font-black leading-none" :class="stat.colorClass">
-              {{ stat.value.includes('%') ? animatedStats[index]?.current : stat.value.replace(/\d+/, animatedStats[index]?.current.toString() || '') }}
+              {{ !['%', '+'].includes(stat.value) ? animatedStats[index]?.current : stat.value.replace(/\d+/, animatedStats[index]?.current.toString() || '') }}
             </span>
             <span v-if="stat.value.includes('%')" class="text-3xl font-bold" :class="stat.colorClass">%</span>
             <span v-if="stat.value.includes('+')" class="text-3xl font-bold" :class="stat.colorClass">+</span>
@@ -237,7 +217,7 @@ onMounted(() => {
           <!-- 标题区域 -->
           <div class="flex items-center gap-4 mb-8">
             <div class="w-16 h-16 bg-gradient-to-br from-nc-primary to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <Icon name="i-lucide:zap" class="w-8 h-8 text-white" />
+              <Icon name="i-lucide:zap" class="size-12 text-white" />
             </div>
             <div>
               <h3 class="text-3xl font-black text-nc-foreground">
@@ -317,28 +297,6 @@ onMounted(() => {
           <!-- 动态背景渐变 -->
           <div :class="`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`" />
 
-          <!-- 装饰性图形 -->
-          <div class="absolute top-4 right-4 w-16 h-16 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-            <svg viewBox="0 0 64 64" class="w-full h-full">
-              <defs>
-                <linearGradient :id="`feature-grad-${index}`" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop v-if="index === 0" offset="0%" stop-color="#60a5fa" stop-opacity="0.6" />
-                  <stop v-else-if="index === 1" offset="0%" stop-color="#c084fc" stop-opacity="0.6" />
-                  <stop v-else-if="index === 2" offset="0%" stop-color="#fb923c" stop-opacity="0.6" />
-                  <stop v-else offset="0%" stop-color="#4ade80" stop-opacity="0.6" />
-
-                  <stop v-if="index === 0" offset="100%" stop-color="#2563eb" stop-opacity="0.2" />
-                  <stop v-else-if="index === 1" offset="100%" stop-color="#9333ea" stop-opacity="0.2" />
-                  <stop v-else-if="index === 2" offset="100%" stop-color="#ea580c" stop-opacity="0.2" />
-                  <stop v-else offset="100%" stop-color="#16a34a" stop-opacity="0.2" />
-                </linearGradient>
-              </defs>
-              <circle cx="32" cy="32" r="28" :fill="`url(#feature-grad-${index})`" />
-              <circle cx="32" cy="32" r="20" fill="none" :stroke="`url(#feature-grad-${index})`" stroke-width="2" opacity="0.5" />
-              <circle cx="32" cy="32" r="12" fill="none" :stroke="`url(#feature-grad-${index})`" stroke-width="1" opacity="0.3" />
-            </svg>
-          </div>
-
           <div class="relative z-10">
             <!-- 图标和标题区域 -->
             <div class="flex items-start gap-4 mb-4">
@@ -387,7 +345,7 @@ onMounted(() => {
     </div>
 
     <!-- 底部行动号召 -->
-    <div class="text-center mt-20">
+    <div v-if="false" class="text-center mt-20">
       <div
         class="relative inline-block"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"

@@ -66,5 +66,6 @@
   "cSpell.words": [
     "dismissable",
     "skdocs"
-  ]
+  ],
+  "tailwindCSS.experimental.configFile": "docs/node_modules/.c12/github_skiyee_skdocs_59KGbsfdn/app/assets/css/main.css"
 }
