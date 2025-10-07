@@ -12,4 +12,11 @@ export default defineAppConfig({
     locale: 'zh-CN',
     type: 'website',
   },
+  footer: {
+    socialLinks: [
+      { name: 'GitHub', icon: 'i-lucide:github', href: 'https://github.com/skiyee/ui' },
+      { name: 'QQ', icon: 'i-lucide:twitter', href: 'https://github.com/skiyee' },
+      { name: 'WechatGroup', icon: 'i-lucide:message-circle', href: 'https://github.com/skiyee' },
+    ],
+  },
 })
