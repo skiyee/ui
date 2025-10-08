@@ -71,7 +71,9 @@
   "devDependencies": {
     "@dcloudio/types": "^3.4.15",
     "@skiyee/ui-preset": "^0.0.8",
-    "@uni-helper/uni-app-types": "1.0.0-alpha.6"
+    "@uni-helper/uni-app-types": "1.0.0-alpha.6",
+    "uni-unocss": "^0.1.1",
+    "unocss": "catalog:"
   },
   "config": {
     "commitizen": {
