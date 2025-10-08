@@ -10,7 +10,7 @@ const handleScroll = () => {
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 
@@ -35,9 +35,9 @@ onUnmounted(() => {
     >
       <button
         v-if="isVisible"
-        @click="scrollToTop"
-        class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-nc-primary text-nc-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+        class="fixed bottom-16 right-8 z-50 w-12 h-12 bg-nc-primary text-nc-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
         aria-label="回到顶部"
+        @click="scrollToTop"
       >
         <Icon name="i-lucide:arrow-up" class="w-5 h-5 group-hover:animate-bounce" />
       </button>

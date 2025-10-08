@@ -127,7 +127,7 @@ onMounted(() => {
 <template>
   <section class="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <!-- 背景装饰 -->
-    <div class="absolute inset-0 -z-10">
+    <div class="absolute overflow-hidden inset-0 -z-10">
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-nc-primary/5 rounded-full blur-3xl" />
       <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
     </div>
