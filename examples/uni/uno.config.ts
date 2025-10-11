@@ -1,14 +1,10 @@
 import { presetSkiyeeUI } from '@skiyee/ui-preset'
-import { presetUni } from '@uni-helper/unocss-preset-uni'
+import { presetUni } from 'uni-unocss'
 import { defineConfig, transformerDirectives } from 'unocss'
 
 export default defineConfig({
   presets: [
-    presetUni({
-      attributify: {
-        prefixedOnly: true,
-      },
-    }),
+    presetUni(),
     presetSkiyeeUI(),
   ],
   transformers: [
