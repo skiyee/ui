@@ -6,6 +6,9 @@
  * @github https://github.com/skiyee
  */
 
+export type { SkActionSheetUcvProps } from './sk-action-sheet'
+export { SkActionSheetUcv } from './sk-action-sheet'
+
 export type { SkBadgeUcvProps } from './sk-badge'
 export { SkBadgeUcv } from './sk-badge'
 
