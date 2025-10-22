@@ -124,6 +124,34 @@
           "type": "page"
         },
         {
+          "path": "image/base",
+          "type": "page"
+        },
+        {
+          "path": "image/error",
+          "type": "page"
+        },
+        {
+          "path": "image/lazy",
+          "type": "page"
+        },
+        {
+          "path": "image/mode",
+          "type": "page"
+        },
+        {
+          "path": "image/placeholder",
+          "type": "page"
+        },
+        {
+          "path": "image/preview",
+          "type": "page"
+        },
+        {
+          "path": "image/radius",
+          "type": "page"
+        },
+        {
           "path": "overlay/animation",
           "type": "page"
         },

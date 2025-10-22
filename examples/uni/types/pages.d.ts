@@ -31,6 +31,13 @@ interface NavigateToOptions {
        "/pages-basic/icon/color" |
        "/pages-basic/icon/name" |
        "/pages-basic/icon/size" |
+       "/pages-basic/image/base" |
+       "/pages-basic/image/error" |
+       "/pages-basic/image/lazy" |
+       "/pages-basic/image/mode" |
+       "/pages-basic/image/placeholder" |
+       "/pages-basic/image/preview" |
+       "/pages-basic/image/radius" |
        "/pages-basic/overlay/animation" |
        "/pages-basic/overlay/backdrop" |
        "/pages-basic/overlay/base" |
