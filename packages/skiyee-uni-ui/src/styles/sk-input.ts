@@ -19,7 +19,7 @@ import { ucv } from '@skiyee/ucv'
 
 export const SkInputUcv = ucv({
   element: {
-    root: 'relative flex flex-row items-center w-full sk-unit:(gap-x-8 px-12) rounded-medium bg-subtle box-border transition-colors',
+    root: 'relative flex flex-row items-center w-full sk-unit:(gap-x-8 px-12) bg-subtle box-border transition-colors',
     leading: 'inline-flex items-center shrink-0 sk-element:text-description',
     inner: 'inline-flex size-full items-center box-border',
     content: 'size-full font-normal text-primary border-none outline-none',
@@ -27,6 +27,23 @@ export const SkInputUcv = ucv({
     trailing: 'inline-flex items-center shrink-0 sk-element:text-description',
   },
   variants: {
+    radius: {
+      tiny: {
+        root: 'rounded-tiny',
+      },
+      small: {
+        root: 'rounded-small',
+      },
+      medium: {
+        root: 'rounded-medium',
+      },
+      large: {
+        root: 'rounded-large',
+      },
+      huge: {
+        root: 'rounded-full',
+      },
+    },
     size: {
       small: {
         root: 'sk-variant:sk-unit:h-42',
@@ -62,6 +79,7 @@ export const SkInputUcv = ucv({
   },
   defaults: {
     size: 'medium',
+    radius: 'medium',
     readonly: false,
     disabled: false,
   },

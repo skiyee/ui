@@ -58,6 +58,11 @@ export interface SkInputProps {
    */
   maxlength?: number;
   /**
+   * 输入框圆角
+   * @default 'medium'
+   */
+  radius?: SkInputUcvProps['radius'];
+  /**
    * 用于拓展当前基础样式
    */
   clax?: SkInputUcvProps['clax'];
@@ -97,6 +102,7 @@ const props = withDefaults(defineProps<SkInputProps>(), {
   readonly: false,
   disabled: false,
   maxlength: 140,
+  radius: 'medium',
 })
 
 const modelValue = defineModel<T>()
@@ -118,7 +124,7 @@ const classes = computed(() => {
     ...props,
     size: elementSize.value,
     disabled: isDisabled.value,
-  })
+  } as unknown as SkInputUcvProps)
 })
 
 const currentValue = computed({
