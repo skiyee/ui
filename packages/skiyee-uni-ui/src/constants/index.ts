@@ -5,6 +5,7 @@
  * @qq 319619193
  * @github https://github.com/skiyee
  */
+export * from './accordion'
 
 export * from './checkbox'
 export * from './field'
