@@ -194,3 +194,7 @@ declare interface Uni {
   switchTab(options: UniNamespace.SwitchTabOptions & SwitchTabOptions): void;
   reLaunch(options: UniNamespace.ReLaunchOptions & ReLaunchOptions): void;
 }
+
+declare module "virtual:uni-pages" {
+  export type LocationUrl = _LocationUrl;
+}
