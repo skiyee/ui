@@ -7,26 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    SkBadge: typeof import('@skiyee/uni-ui/components/sk-badge.vue')['default']
     SkButton: typeof import('@skiyee/uni-ui/components/sk-button.vue')['default']
-    SkCheckbox: typeof import('@skiyee/uni-ui/components/sk-checkbox.vue')['default']
-    SkCheckboxGroup: typeof import('@skiyee/uni-ui/components/sk-checkbox-group.vue')['default']
-    SkDialog: typeof import('@skiyee/uni-ui/components/sk-dialog.vue')['default']
-    SkField: typeof import('@skiyee/uni-ui/components/sk-field.vue')['default']
-    SkForm: typeof import('@skiyee/uni-ui/components/sk-form.vue')['default']
     SkIcon: typeof import('@skiyee/uni-ui/components/sk-icon.vue')['default']
-    SkInput: typeof import('@skiyee/uni-ui/components/sk-input.vue')['default']
-    SkNumberInput: typeof import('@skiyee/uni-ui/components/sk-number-input.vue')['default']
     SkOverlay: typeof import('@skiyee/uni-ui/components/sk-overlay.vue')['default']
-    SkPicker: typeof import('@skiyee/uni-ui/components/sk-picker.vue')['default']
     SkRadio: typeof import('@skiyee/uni-ui/components/sk-radio.vue')['default']
     SkRadioGroup: typeof import('@skiyee/uni-ui/components/sk-radio-group.vue')['default']
     SkRoller: typeof import('@skiyee/uni-ui/components/sk-roller.vue')['default']
     SkRollerGroup: typeof import('@skiyee/uni-ui/components/sk-roller-group.vue')['default']
-    SkSlider: typeof import('@skiyee/uni-ui/components/sk-slider.vue')['default']
-    SkSpinner: typeof import('@skiyee/uni-ui/components/sk-spinner.vue')['default']
-    SkSwitch: typeof import('@skiyee/uni-ui/components/sk-switch.vue')['default']
-    SkTextarea: typeof import('@skiyee/uni-ui/components/sk-textarea.vue')['default']
-    SkToast: typeof import('@skiyee/uni-ui/components/sk-toast.vue')['default']
+    SkTab: typeof import('@skiyee/uni-ui/components/sk-tab.vue')['default']
+    SkTabItem: typeof import('@skiyee/uni-ui/components/sk-tab-item.vue')['default']
+    SkTabs: typeof import('@skiyee/uni-ui/components/sk-tabs.vue')['default']
   }
 }

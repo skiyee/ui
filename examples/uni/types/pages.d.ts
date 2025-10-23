@@ -175,6 +175,14 @@ interface NavigateToOptions {
        "/pages-feedback/toast/placement" |
        "/pages-feedback/toast/type" |
        "/pages-feedback/toast/z-index" |
+       "/pages-navigation/tabs/animated" |
+       "/pages-navigation/tabs/base" |
+       "/pages-navigation/tabs/controlled" |
+       "/pages-navigation/tabs/default-value" |
+       "/pages-navigation/tabs/disabled" |
+       "/pages-navigation/tabs/events" |
+       "/pages-navigation/tabs/line" |
+       "/pages-navigation/tabs/scrollable" |
        "/pages-design/colors/background" |
        "/pages-design/colors/border" |
        "/pages-design/colors/functional" |
