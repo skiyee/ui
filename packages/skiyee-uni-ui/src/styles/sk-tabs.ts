@@ -21,17 +21,22 @@ import { ucv } from '@skiyee/ucv'
 export const SkTabsUcv = ucv({
   element: {
     root: 'relative w-full bg-surface',
-    scrollView: 'w-full overflow-x-auto overflow-y-hidden',
+    scrollWrapper: 'w-full overflow-x-auto overflow-y-hidden',
     nav: 'relative inline-flex min-w-full',
-    line: 'absolute bottom-0 left-0 h-2px bg-brand transition-all duration-300 ease-out',
+    tab: 'relative inline-flex items-center justify-center whitespace-nowrap select-none transition-colors',
+    tabContent: 'flex items-center sk-unit:gap-8 sk-unit:px-16 sk-unit:py-8 text-sm font-medium sk-element:text-secondary',
+    line: 'absolute bottom-0 left-0 sk-unit:h-2 bg-brand transition-all duration-300 ease-out',
+    panels: 'w-full',
   },
   variants: {
     scrollable: {
       true: {
-        scrollView: 'scrollbar-hide',
+        scrollWrapper: 'scrollbar-hide',
+        tab: 'flex-shrink-0',
       },
       false: {
         nav: 'w-full',
+        tab: 'flex-1',
       },
     },
     animated: {
@@ -42,10 +47,27 @@ export const SkTabsUcv = ucv({
         line: 'transition-none',
       },
     },
+    active: {
+      true: {
+        tabContent: 'sk-variant:text-brand',
+      },
+      false: {},
+    },
+    disabled: {
+      true: {
+        tab: 'cursor-not-allowed',
+        tabContent: 'sk-variant:text-disabled',
+      },
+      false: {
+        tab: 'cursor-pointer',
+      },
+    },
   },
   defaults: {
     scrollable: false,
     animated: true,
+    active: false,
+    disabled: false,
   },
 })
 

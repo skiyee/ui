@@ -9,9 +9,12 @@
  * @example
  * ```vue
  * <sk-tabs v-model="activeIndex">
- *   <sk-tab-item label="标签1" />
- *   <sk-tab-item label="标签2" />
- *   <sk-tab-item label="标签3" />
+ *   <sk-tab label="标签1">
+ *     <view>内容1</view>
+ *   </sk-tab>
+ *   <sk-tab label="标签2">
+ *     <view>内容2</view>
+ *   </sk-tab>
  * </sk-tabs>
  * ```
  *
@@ -32,24 +35,10 @@ export interface SkTabsProps {
    */
   scrollable?: boolean;
   /**
-   * 主题色
-   * @default 'brand'
-   */
-  color?: string;
-  /**
-   * 激活态颜色
-   */
-  activeColor?: string;
-  /**
-   * 指示器宽度（rpx）
+   * 指示器宽度（px）
    * @default 'auto' - 自动根据标签宽度计算
    */
   lineWidth?: number | 'auto';
-  /**
-   * 指示器高度（rpx）
-   * @default 4
-   */
-  lineHeight?: number;
   /**
    * 是否启用切换动画
    * @default true
@@ -79,7 +68,7 @@ export interface SkTabsEmits {
 
 export interface SkTabsSlots {
   /**
-   * 标签列表
+   * 标签列表（放置 sk-tab 组件）
    */
   default?: () => any;
 }
@@ -102,9 +91,7 @@ defineOptions({
 const props = withDefaults(defineProps<SkTabsProps>(), {
   defaultValue: 0,
   scrollable: false,
-  color: 'brand',
   lineWidth: 'auto',
-  lineHeight: 4,
   animated: true,
   disabled: false,
 })
@@ -139,12 +126,6 @@ const activeIndex = computed({
   },
 })
 
-// 指示器样式
-const lineStyle = ref({
-  width: '0px',
-  transform: 'translateX(0px)',
-})
-
 // scroll-view 的 scroll-left 值
 const scrollLeft = ref(0)
 
@@ -156,9 +137,51 @@ interface TabItemInfo {
 
 const tabItemsInfo = ref<TabItemInfo[]>([])
 
+// 计算指示器宽度（使用 computed 提升性能）
+const lineWidth = computed(() => {
+  const currentTabInfo = tabItemsInfo.value[activeIndex.value]
+  if (!currentTabInfo) {
+    return '0px'
+  }
+
+  const width = props.lineWidth === 'auto'
+    ? currentTabInfo.width
+    : props.lineWidth
+
+  return `${width}px`
+})
+
+// 计算指示器位置（使用 computed 提升性能，并实现居中对齐）
+const lineTransform = computed(() => {
+  const currentTabInfo = tabItemsInfo.value[activeIndex.value]
+  if (!currentTabInfo) {
+    return 'translateX(0px)'
+  }
+
+  // 计算指示器的实际宽度
+  const actualLineWidth = props.lineWidth === 'auto'
+    ? currentTabInfo.width
+    : props.lineWidth
+
+  // 计算居中偏移量：tab 中心位置 - 指示器宽度的一半
+  const tabCenter = currentTabInfo.offsetLeft + currentTabInfo.width / 2
+  const lineOffset = tabCenter - actualLineWidth / 2
+
+  return `translateX(${lineOffset}px)`
+})
+
+// 存储所有 tab 的数据
+interface TabData {
+  uid: number;
+  props: any;
+}
+
+const tabs = ref<TabData[]>([])
+
 // 切换标签
 function setActiveIndex(index: number) {
-  if (props.disabled) {
+  const tab = tabs.value[index]
+  if (props.disabled || tab?.props.disabled) {
     return
   }
 
@@ -171,30 +194,8 @@ function setActiveIndex(index: number) {
   emits('click', index)
 
   nextTick(() => {
-    updateLinePosition()
     scrollToActiveTab()
   })
-}
-
-// 更新指示器位置
-function updateLinePosition() {
-  if (tabItemsInfo.value.length === 0) {
-    return
-  }
-
-  const currentTabInfo = tabItemsInfo.value[activeIndex.value]
-  if (!currentTabInfo) {
-    return
-  }
-
-  const lineWidth = props.lineWidth === 'auto'
-    ? currentTabInfo.width
-    : props.lineWidth
-
-  lineStyle.value = {
-    width: `${lineWidth}rpx`,
-    transform: `translateX(${currentTabInfo.offsetLeft}rpx)`,
-  }
 }
 
 // 滚动到激活的标签
@@ -208,7 +209,6 @@ function scrollToActiveTab() {
     return
   }
 
-  // 获取容器宽度（假设视口宽度为 750rpx）
   const query = uni.createSelectorQuery().in(instance)
   query.select('.sk-tabs-scroll-view').boundingClientRect((rect: any) => {
     if (rect) {
@@ -237,20 +237,26 @@ function updateTabItemsInfo() {
           return info
         })
 
-        updateLinePosition()
         scrollToActiveTab()
       }
     }).exec()
   })
 }
 
-// 注册标签项
-function registerTabItem() {
-  updateTabItemsInfo()
+// 注册标签
+function registerTab(tab: TabData) {
+  tabs.value.push(tab)
+  nextTick(() => {
+    updateTabItemsInfo()
+  })
 }
 
-// 注销标签项
-function unregisterTabItem() {
+// 注销标签
+function unregisterTab(uid: number) {
+  const index = tabs.value.findIndex(tab => tab.uid === uid)
+  if (index > -1) {
+    tabs.value.splice(index, 1)
+  }
   updateTabItemsInfo()
 }
 
@@ -258,30 +264,18 @@ function unregisterTabItem() {
 const tabsContext = readonly({
   props: reactive({
     activeIndex: toRef(() => activeIndex.value),
-    color: toRef(() => props.color),
-    activeColor: toRef(() => props.activeColor),
     disabled: toRef(() => props.disabled),
   }),
   setActiveIndex,
-  registerTabItem,
-  unregisterTabItem,
+  registerTab,
+  unregisterTab,
 })
 
-const { internalChildren } = useProvide(SK_TABS_KEY)(tabsContext)
-
-// 监听子组件变化
-watch(
-  () => internalChildren.length,
-  () => {
-    updateTabItemsInfo()
-  },
-  { immediate: true },
-)
+useProvide(SK_TABS_KEY)(tabsContext)
 
 // 监听激活索引变化
 watch(activeIndex, () => {
   nextTick(() => {
-    updateLinePosition()
     scrollToActiveTab()
   })
 })
@@ -295,26 +289,51 @@ onMounted(() => {
 
 <template>
   <view :class="classes.root()">
+    <!-- 标签导航栏 -->
     <scroll-view
-      class="sk-tabs-scroll-view" :class="[classes.scrollView()]"
+      class="sk-tabs-scroll-view" :class="[classes.scrollWrapper()]"
       :scroll-x="scrollable"
       :scroll-left="scrollLeft"
       :scroll-with-animation="animated"
       :show-scrollbar="false"
     >
       <view :class="classes.nav()">
-        <slot />
+        <!-- 渲染所有标签头部 -->
+        <view
+          v-for="(tab, idx) in tabs"
+          :key="tab.uid"
+          class="sk-tab-item"
+          :class="classes.tab({
+            active: activeIndex === idx,
+            disabled: disabled || tab.props.disabled,
+          })"
+          @tap="() => setActiveIndex(idx)"
+        >
+          <view
+            :class="classes.tabContent({
+              active: activeIndex === idx,
+              disabled: disabled || tab.props.disabled,
+            })"
+          >
+            <!-- 默认显示标签文本 -->
+            {{ tab.props.label }}
+          </view>
+        </view>
 
         <!-- 指示器 -->
         <view
           :class="classes.line()"
           :style="{
-            ...lineStyle,
-            height: `${lineHeight}rpx`,
-            backgroundColor: activeColor || color,
+            width: lineWidth,
+            transform: lineTransform,
           }"
         />
       </view>
     </scroll-view>
+
+    <!-- 标签面板内容区域 -->
+    <view :class="classes.panels()">
+      <slot />
+    </view>
   </view>
 </template>
