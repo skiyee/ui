@@ -5,7 +5,7 @@ const activeIndex = ref(0)
 </script>
 
 <template>
-  <view class="p-16px">
+  <view class="p-16px overflow-auto">
     <view class="mb-16px">
       <text class="text-body-large font-semibold">
         可滚动标签页
@@ -13,14 +13,17 @@ const activeIndex = ref(0)
     </view>
 
     <SkTabs v-model="activeIndex" scrollable>
-      <SkTabItem label="标签1" />
-      <SkTabItem label="标签2" />
-      <SkTabItem label="标签3" />
-      <SkTabItem label="标签4" />
-      <SkTabItem label="标签5" />
-      <SkTabItem label="标签6" />
-      <SkTabItem label="标签7" />
-      <SkTabItem label="标签8" />
+      <SkTab
+        v-for="i in 8"
+        :key="i"
+        :label="`标签${i}`"
+      >
+        <view class="p-16px">
+          <text class="text-body-medium">
+            标签{{ i }}的内容
+          </text>
+        </view>
+      </SkTab>
     </SkTabs>
 
     <view class="mt-16px p-16px bg-surface-container rounded-8px">

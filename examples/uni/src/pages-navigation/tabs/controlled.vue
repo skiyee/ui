@@ -21,10 +21,34 @@ function setTab(index: number) {
     </view>
 
     <SkTabs v-model="activeIndex" @change="handleChange">
-      <SkTabItem label="首页" />
-      <SkTabItem label="分类" />
-      <SkTabItem label="购物车" />
-      <SkTabItem label="我的" />
+      <SkTab label="首页">
+        <view class="p-16px">
+          <text class="text-body-medium">
+            首页内容
+          </text>
+        </view>
+      </SkTab>
+      <SkTab label="分类">
+        <view class="p-16px">
+          <text class="text-body-medium">
+            分类内容
+          </text>
+        </view>
+      </SkTab>
+      <SkTab label="购物车">
+        <view class="p-16px">
+          <text class="text-body-medium">
+            购物车内容
+          </text>
+        </view>
+      </SkTab>
+      <SkTab label="我的">
+        <view class="p-16px">
+          <text class="text-body-medium">
+            我的内容
+          </text>
+        </view>
+      </SkTab>
     </SkTabs>
 
     <view class="mt-16px p-16px bg-surface-container rounded-8px">

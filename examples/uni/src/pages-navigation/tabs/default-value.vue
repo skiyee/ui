@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const activeIndex = ref(0)
 </script>
 
 <template>
   <view class="p-16px">
     <view class="mb-16px">
       <text class="text-body-large font-semibold">
-        基础用法
+        默认激活第二个标签
       </text>
     </view>
 
-    <SkTabs v-model="activeIndex">
+    <SkTabs :default-value="1">
       <SkTab label="标签1">
         <view class="p-16px">
           <text class="text-body-medium">
@@ -23,7 +20,7 @@ const activeIndex = ref(0)
       <SkTab label="标签2">
         <view class="p-16px">
           <text class="text-body-medium">
-            标签2的内容
+            标签2的内容（默认激活）
           </text>
         </view>
       </SkTab>
@@ -35,5 +32,11 @@ const activeIndex = ref(0)
         </view>
       </SkTab>
     </SkTabs>
+
+    <view class="mt-16px p-16px bg-surface-container rounded-8px">
+      <text class="text-body-medium text-secondary">
+        非受控模式下，使用 default-value 设置默认激活的标签
+      </text>
+    </view>
   </view>
 </template>

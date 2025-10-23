@@ -13,25 +13,67 @@ const activeIndex = ref(0)
     </view>
 
     <view class="mb-24px">
-      <text class="text-body-small text-secondary mb-8px">
+      <text class="text-body-small text-secondary mb-8px block">
         部分标签禁用
       </text>
       <SkTabs v-model="activeIndex">
-        <SkTabItem label="标签1" />
-        <SkTabItem label="标签2" disabled />
-        <SkTabItem label="标签3" />
-        <SkTabItem label="标签4" disabled />
+        <SkTab label="标签1">
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签1的内容
+            </text>
+          </view>
+        </SkTab>
+        <SkTab label="标签2" disabled>
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签2的内容（已禁用）
+            </text>
+          </view>
+        </SkTab>
+        <SkTab label="标签3">
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签3的内容
+            </text>
+          </view>
+        </SkTab>
+        <SkTab label="标签4" disabled>
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签4的内容（已禁用）
+            </text>
+          </view>
+        </SkTab>
       </SkTabs>
     </view>
 
     <view class="mb-24px">
-      <text class="text-body-small text-secondary mb-8px">
+      <text class="text-body-small text-secondary mb-8px block">
         整个标签页禁用
       </text>
       <SkTabs disabled>
-        <SkTabItem label="标签1" />
-        <SkTabItem label="标签2" />
-        <SkTabItem label="标签3" />
+        <SkTab label="标签1">
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签1的内容
+            </text>
+          </view>
+        </SkTab>
+        <SkTab label="标签2">
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签2的内容
+            </text>
+          </view>
+        </SkTab>
+        <SkTab label="标签3">
+          <view class="p-16px">
+            <text class="text-body-medium">
+              标签3的内容
+            </text>
+          </view>
+        </SkTab>
       </SkTabs>
     </view>
 

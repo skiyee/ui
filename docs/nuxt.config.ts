@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      demo: 'bundle',
+      demo: 'http://localhost:5173/#/',
     },
   },
 })
