@@ -51,6 +51,9 @@ export { SkSliderUcv } from './sk-slider'
 export type { SkSpinnerUcvProps } from './sk-spinner'
 export { SkSpinnerUcv } from './sk-spinner'
 
+export type { SkSwiperUcvProps } from './sk-swiper'
+export { SkSwiperUcv } from './sk-swiper'
+
 export type { SkSwitchUcvProps } from './sk-switch'
 export { SkSwitchUcv } from './sk-switch'
 
