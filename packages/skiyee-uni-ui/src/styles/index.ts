@@ -5,6 +5,11 @@
  * @qq 319619193
  * @github https://github.com/skiyee
  */
+export type { SkAccordionUcvProps } from './sk-accordion'
+export { SkAccordionUcv } from './sk-accordion'
+
+export type { SkAccordionItemUcvProps } from './sk-accordion-item'
+export { SkAccordionItemUcv } from './sk-accordion-item'
 
 export type { SkBadgeUcvProps } from './sk-badge'
 export { SkBadgeUcv } from './sk-badge'
