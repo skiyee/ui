@@ -638,6 +638,38 @@
       "root": "pages-feedback",
       "pages": [
         {
+          "path": "action-sheet/base",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/cancel",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/controlled",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/custom",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/description",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/destructive",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/disabled",
+          "type": "page"
+        },
+        {
+          "path": "action-sheet/icon",
+          "type": "page"
+        },
+        {
           "path": "dialog/base",
           "type": "page"
         },
