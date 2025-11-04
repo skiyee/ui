@@ -54,6 +54,9 @@ export { SkSpinnerUcv } from './sk-spinner'
 export type { SkSwitchUcvProps } from './sk-switch'
 export { SkSwitchUcv } from './sk-switch'
 
+export type { SkTagUcvProps } from './sk-tag'
+export { SkTagUcv } from './sk-tag'
+
 export type { SkTextareaUcvProps } from './sk-textarea'
 export { SkTextareaUcv } from './sk-textarea'
 

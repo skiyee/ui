@@ -190,6 +190,38 @@
         {
           "path": "roller/visible-count",
           "type": "page"
+        },
+        {
+          "path": "tag/base",
+          "type": "page"
+        },
+        {
+          "path": "tag/type",
+          "type": "page"
+        },
+        {
+          "path": "tag/variant",
+          "type": "page"
+        },
+        {
+          "path": "tag/size",
+          "type": "page"
+        },
+        {
+          "path": "tag/radius",
+          "type": "page"
+        },
+        {
+          "path": "tag/closable",
+          "type": "page"
+        },
+        {
+          "path": "tag/icon",
+          "type": "page"
+        },
+        {
+          "path": "tag/custom",
+          "type": "page"
         }
       ]
     },
