@@ -6,7 +6,7 @@ import { isNil } from './is'
  */
 export function formatSize(size: string | number) {
   const isNumeric = !Number.isNaN(Number(size))
-  return isNumeric ? `${size}rpx` : size
+  return isNumeric ? `${size}rpx` : `${size}`
 }
 
 /**

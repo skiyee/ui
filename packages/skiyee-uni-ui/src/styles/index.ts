@@ -24,6 +24,9 @@ export { SkDialogUcv } from './sk-dialog'
 export type { SkFieldUcvProps } from './sk-field'
 export { SkFieldUcv } from './sk-field'
 
+export type { SkImageUcvProps } from './sk-image'
+export { SkImageUcv } from './sk-image'
+
 export type { SkInputUcvProps } from './sk-input'
 export { SkInputUcv } from './sk-input'
 
@@ -55,7 +58,7 @@ export type { SkSwitchUcvProps } from './sk-switch'
 export { SkSwitchUcv } from './sk-switch'
 
 export type { SkTextareaUcvProps } from './sk-textarea'
-export { SkTextareaUcv } from './sk-textarea'
 
+export { SkTextareaUcv } from './sk-textarea'
 export type { SkToastUcvProps } from './sk-toast'
 export { SkToastUcv } from './sk-toast'
