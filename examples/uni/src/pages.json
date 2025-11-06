@@ -712,6 +712,43 @@
       ]
     },
     {
+      "root": "pages-navigation",
+      "pages": [
+        {
+          "path": "tabs/animated",
+          "type": "page"
+        },
+        {
+          "path": "tabs/base",
+          "type": "page"
+        },
+        {
+          "path": "tabs/controlled",
+          "type": "page"
+        },
+        {
+          "path": "tabs/default-value",
+          "type": "page"
+        },
+        {
+          "path": "tabs/disabled",
+          "type": "page"
+        },
+        {
+          "path": "tabs/events",
+          "type": "page"
+        },
+        {
+          "path": "tabs/line",
+          "type": "page"
+        },
+        {
+          "path": "tabs/scrollable",
+          "type": "page"
+        }
+      ]
+    },
+    {
       "root": "pages-design",
       "pages": [
         {
